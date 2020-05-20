@@ -1,0 +1,54 @@
+/* Main container */
+#container {
+    margin: 0px;
+    padding: 0px;
+    height: 900px;
+    width: 1600px;
+    background-color: #E8E8E8;
+    position: relative;
+}
+
+/* Header */
+#top-banner{
+    height: 80px;
+    width: 1600px;
+    background-color: #D0D0D0;
+}
+h1{
+    margin-left: 640px;;
+    font-size: 50px;
+}
+
+/* Button for adding assignment */
+#add-assignment{
+    left: 100px;
+    bottom: 80px;
+}
+.circle {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background-color: #03a9fc;
+    position: absolute;
+}
+
+.circle::before {
+    content: "+";
+    height: 200px;
+    width: 200px;
+    font-size: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: courier;
+    color: white;
+    position: absolute;
+}
+#new-project-h1{
+    position: absolute;
+    left: -400px;
+    width: 300px;
+    bottom: 40px;
+}
