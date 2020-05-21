@@ -17,6 +17,63 @@
 h1{
     margin-left: 640px;;
     font-size: 50px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.project{
+    position: absolute;
+    width: 400px;
+    height: 200px;  
+    
+}
+
+#project1{
+    background-color: #FFB7B2;
+    top: 220px;
+    left: 100px;
+}
+
+#project2{
+    background-color: rgb(160,231,253);
+    top: 480px;
+    left: 100px;
+}
+
+#project3{
+    background-color: rgb(250,216,136);
+    top: 220px;
+    left: 570px;
+}
+
+.div0{
+    position: absolute;
+    background-color: #B5EAD7;
+    position: absolute;
+    width: 400px;
+    height: 200px; 
+    top: 480px;
+    left: 570px;
+}
+
+.div1{
+    position: absolute;
+    background-color: #C7CEEA;
+    position: absolute;
+    width: 400px;
+    height: 200px; 
+    top: 220px;
+    left: 1040px;
+}
+
+.div2{
+    position: absolute;
+    background-color: #FFDAC1;
+    position: absolute;
+    width: 400px;
+    height: 200px; 
+    top: 480px;
+    left: 1040px;
 }
 
 /* Button for adding assignment */
@@ -24,31 +81,121 @@ h1{
     left: 100px;
     bottom: 80px;
 }
-.circle {
+.circle{
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    border: 10px solid #03a9fc;
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+<<<<<<< HEAD
+    width: 100px;
+    height: 100px;
     background-color: #03a9fc;
+=======
+    bottom: 150px;
+    left: 380px;
+>>>>>>> cf0a85b4f05b05a6912a0740b872fc5b4174ffb5
     position: absolute;
 }
-
 .circle::before {
     content: "+";
-    height: 200px;
-    width: 200px;
-    font-size: 200px;
+<<<<<<< HEAD
+    font-size: 110px;
+    top:-10px;
+    left: 15px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+=======
+    height: 40px;
+    width: 40px;
+    font-size: 80px;
+    left: 22px;
+    bottom: 54px;
+>>>>>>> cf0a85b4f05b05a6912a0740b872fc5b4174ffb5
     font-weight: bold;
     font-family: courier;
     color: white;
     position: absolute;
 }
-#new-project-h1{
+#new-project-h2{
     position: absolute;
+<<<<<<< HEAD
+    top: 10px;
     left: -400px;
     width: 300px;
     bottom: 40px;
+=======
+    padding: 0px;
+    margin: 0px;
+    bottom: 125px;
+    left: 230px;
+>>>>>>> cf0a85b4f05b05a6912a0740b872fc5b4174ffb5
 }
+
+#add-project-btn{
+    background-color: aqua;
+    width: 500px;
+    height: 100px;
+    opacity: 0;
+    position: absolute;
+    top: 700px;
+    left: 100px;
+    
+}
+
+#new-project-modal{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s opacity 0,5s;
+    
+}
+
+
+
+#modal-content{
+    
+    position: absolute;
+    background-color: white;
+    width: 250px;
+    height: 160px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#modal-content button{
+    padding: 10px 10px;
+    background-color: grey;
+}
+
+#modal-content button:hover{
+    padding: 10px 10px;
+    border: 1px black dotted;
+}
+
+#new-project-input{
+    padding: 5px 10px;
+}
+
+#exit-modal{
+    position: absolute;
+    left: 220px;
+    top: -5px;
+    
+}
+
