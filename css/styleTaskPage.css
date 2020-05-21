@@ -24,31 +24,32 @@ h1{
     left: 100px;
     bottom: 80px;
 }
-.circle {
+.circle{
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    border: 10px solid #03a9fc;
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    background-color: #03a9fc;
+    bottom: 150px;
+    left: 380px;
     position: absolute;
 }
-
 .circle::before {
     content: "+";
-    height: 200px;
-    width: 200px;
-    font-size: 200px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    height: 40px;
+    width: 40px;
+    font-size: 80px;
+    left: 22px;
+    bottom: 54px;
     font-weight: bold;
     font-family: courier;
     color: white;
     position: absolute;
 }
-#new-project-h1{
+#new-project-h2{
     position: absolute;
-    left: -400px;
-    width: 300px;
-    bottom: 40px;
+    padding: 0px;
+    margin: 0px;
+    bottom: 125px;
+    left: 230px;
 }
