@@ -41,6 +41,21 @@ h1{
     left: 150px;
     background-color: white;
 }
+/* Modal Section */
+#add-participant-modal {
+    display: none;
+    position: absolute;
+    background-color: rebeccapurple;
+    width: 250px;
+    height: 200px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+form label, p {
+    color: white;
+}
 
 /* To do list violet */
 #to-do-list{
@@ -61,6 +76,8 @@ h1{
     top: 500px;
     left: 850px;
 }
+
+
 
 /* Color indicators and importance level */
 
