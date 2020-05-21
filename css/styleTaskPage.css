@@ -87,25 +87,22 @@ h1{
     position: absolute;
     border: 10px solid #03a9fc;
     border-radius: 50%;
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     width: 100px;
     height: 100px;
     background-color: #03a9fc;
-=======
+
     bottom: 150px;
     left: 380px;
->>>>>>> cf0a85b4f05b05a6912a0740b872fc5b4174ffb5
-=======
+
     bottom: 150px;
     left: 380px;
->>>>>>> cf0a85b4f05b05a6912a0740b872fc5b4174ffb5
+
     position: absolute;
 }
 .circle::before {
     content: "+";
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     font-size: 110px;
     top:-10px;
     left: 15px;
@@ -113,18 +110,13 @@ h1{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-=======
-=======
->>>>>>> cf0a85b4f05b05a6912a0740b872fc5b4174ffb5
+
     height: 40px;
     width: 40px;
     font-size: 80px;
     left: 22px;
     bottom: 54px;
-<<<<<<< HEAD
->>>>>>> cf0a85b4f05b05a6912a0740b872fc5b4174ffb5
-=======
->>>>>>> cf0a85b4f05b05a6912a0740b872fc5b4174ffb5
+
     font-weight: bold;
     font-family: courier;
     color: white;
@@ -132,23 +124,17 @@ h1{
 }
 #new-project-h2{
     position: absolute;
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     top: 10px;
     left: -400px;
     width: 300px;
     bottom: 40px;
-=======
-=======
->>>>>>> cf0a85b4f05b05a6912a0740b872fc5b4174ffb5
+
     padding: 0px;
     margin: 0px;
     bottom: 125px;
     left: 230px;
-<<<<<<< HEAD
->>>>>>> cf0a85b4f05b05a6912a0740b872fc5b4174ffb5
-=======
->>>>>>> cf0a85b4f05b05a6912a0740b872fc5b4174ffb5
+
 }
 
 #add-project-btn{
