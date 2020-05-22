@@ -1,140 +1,92 @@
-/* Main container */
-#container {
+*{
     margin: 0px;
     padding: 0px;
-    height: 900px;
-    width: 1600px;
-    background-color: #E8E8E8;
-    position: relative;
+    border: 0px;
+}
+
+body{
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    
+   
+}
+
+/* Main container */
+#container {
+    background-color: #EBEBEB;
+    height: 65%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Header */
 #top-banner{
-    height: 80px;
-    width: 1600px;
-    background-color: #D0D0D0;
+    display: flex;
+    background-color: grey;
+    width: 100%;
+    padding-bottom: 60px;
+}
+
+#headline{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 h1{
-    margin-left: 640px;;
-    font-size: 50px;
+    font-size: 60px;
     font-family: 'Montserrat', sans-serif;
+   
+}
+
+h3{
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+   
+}
+
+#projects-container{
+    display: flex;
+    width: 100%;
+    
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.div-common{
+    width: 400px;
+    height: 200px; 
+    margin: 40px;
 }
 
 
 .project{
-    position: absolute;
-    width: 400px;
-    height: 200px;  
+    padding: 50px 10px 50px 10px;
+    width: 450px;
+    height: 100px;
+    margin: 40px;
+   
     
 }
 
-#project1{
-    background-color: #FFB7B2;
-    top: 220px;
-    left: 100px;
-}
 
-#project2{
-    background-color: rgb(160,231,253);
-    top: 480px;
-    left: 100px;
-}
 
-#project3{
-    background-color: rgb(250,216,136);
-    top: 220px;
-    left: 570px;
-}
-
-.div0{
-    position: absolute;
-    background-color: #B5EAD7;
-    position: absolute;
-    width: 400px;
-    height: 200px; 
-    top: 480px;
-    left: 570px;
-}
-
-.div1{
-    position: absolute;
-    background-color: #C7CEEA;
-    position: absolute;
-    width: 400px;
-    height: 200px; 
-    top: 220px;
-    left: 1040px;
-}
-
-.div2{
-    position: absolute;
-    background-color: #FFDAC1;
-    position: absolute;
-    width: 400px;
-    height: 200px; 
-    top: 480px;
-    left: 1040px;
-}
-
-/* Button for adding assignment */
-#add-assignment{
-    left: 100px;
-    bottom: 80px;
-}
-.circle{
-    width: 90px;
-    height: 90px;
-    position: absolute;
-    border: 10px solid #03a9fc;
-    border-radius: 50%;
-
-    width: 100px;
-    height: 100px;
-    background-color: #03a9fc;
-
-    bottom: 150px;
-    left: 380px;
-
-    bottom: 150px;
-    left: 380px;
-
-    position: absolute;
-}
-.circle::before {
-    content: "+";
-
-    font-size: 110px;
-    top:-10px;
-    left: 15px;
+#new-project-section{
+    background-color: #EBEBEB;
     display: flex;
-    flex-direction: row;
+    height: 40%;
     align-items: center;
-    justify-content: center;
-
-    height: 40px;
-    width: 40px;
-    font-size: 80px;
-    left: 22px;
-    bottom: 54px;
-
-    font-weight: bold;
-    font-family: courier;
-    color: white;
-    position: absolute;
-}
-#new-project-h2{
-    position: absolute;
-
-    top: 10px;
-    left: -400px;
-    width: 300px;
-    bottom: 40px;
-
-    padding: 0px;
-    margin: 0px;
-    bottom: 125px;
-    left: 230px;
-
+    justify-content: flex-start;
 }
 
 #add-project-btn{
@@ -142,18 +94,16 @@ h1{
     width: 500px;
     height: 100px;
     opacity: 0;
-    position: absolute;
-    top: 700px;
-    left: 100px;
+  
     
 }
 
 #new-project-modal{
     position: absolute;
-    width: 100%;
-    height: 100vh;
     top: 0;
     left: 0;
+    height: 100%;
+    width: 100%;
     background-color: rgba(0,0,0,0.7);
     display: flex;
     justify-content: center;
@@ -167,13 +117,11 @@ h1{
 
 
 #modal-content{
-    
-    position: absolute;
     background-color: white;
     width: 250px;
     height: 160px;
-    padding-bottom: 20px;
-    padding-top: 10px;
+    padding-bottom: 30px;
+    padding-top: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -196,7 +144,6 @@ h1{
 }
 
 #exit-modal{
-    position: absolute;
     left: 220px;
     top: -5px;
     
