@@ -72,6 +72,7 @@ form label, p {
     background-color: #c895c8;
     top: 500px;
     left: 150px;
+    overflow: scroll;
 }
 
 
@@ -83,6 +84,7 @@ form label, p {
     background-color: #7ec586;
     top: 500px;
     left: 850px;
+    overflow: scroll;
 }
 
 
@@ -156,6 +158,13 @@ form label, p {
     right: -120px;
     font-family: monospace;
     top: -10px;
+}
+/* Task Section */
+.task-p-class {
+    width: 100px;
+    height: 50px;
+    padding: 50px;
+    display: inline-block;
 }
 
 

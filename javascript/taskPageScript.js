@@ -43,20 +43,54 @@ function renderParticipants(){
 function submitTodoModal(event) {
     event.preventDefault();
 
-    const toDoList = document.getElementById('to-do-list');
+    var listOfTasks = JSON.parse(window.localStorage.getItem('listOfTasks')) || [];
 
-    var taskImportance;
+    const toDoList = document.getElementById('to-do-list');
     const taskName = document.querySelector("[name='task']").value;
     const radiobuttons = document.querySelectorAll("[name='importance']");
+    var taskImportance;
 
     for (const radiobutton of radiobuttons){
         if(radiobutton.checked){
-            taskImportance = radiobutton.value;
+            taskImportance = parseInt(radiobutton.value);
+
             break;
         }
     }
 
-    console.log(taskName, taskImportance);
+    switch(taskImportance){
+        case 0:
+            toDoList.innerHTML += `<div class="task-p-class" style="background-color:#00ff00;">${taskName}</div>`;
+            taskImportance = '#00ff00';
+            break;
+        case 1:
+            toDoList.innerHTML += `<div class="task-p-class" style="background-color:#ffff00;">${taskName}</div>`;
+            taskImportance = 'ffff00';
+            break;
+        case 2:
+            toDoList.innerHTML += `<div class="task-p-class" style="background-color:#ff0000;">${taskName}</div>`;
+            taskImportance = '#ff0000';
+            break;
+        default:
+            toDoList.innerHTML += `<div class="task-p-class" style="background-color:#ffff00;">${taskName}</div>`;
+            taskImportance = '#ffff00';
+            break;
+    }
+    
 
-    toDoList.innerHTML += `<p style="backgroundColor:>${taskName}</p>`;
+    const task = {taskName, taskImportance};
+    console.log(task);
+    listOfTasks.push(task);
+
+    window.localStorage.setItem('listOfTasks', JSON.stringify(listOfTasks));
+
+}
+
+function renderTodoList() {
+    const listOfTasks = JSON.parse(window.localStorage.getItem('listOfTasks')) || [];
+    const toDoList = document.getElementById('to-do-list');
+
+    for (var i=0; i<listOfTasks.length; i++) {
+        toDoList.innerHTML += `<div><p draggable="true">${listOfTasks[i].taskName}</p></div>`
+    }
 }
