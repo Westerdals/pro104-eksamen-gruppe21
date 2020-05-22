@@ -4,9 +4,6 @@
         <title>IndexPage</title>
 
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="/program/css/style.css">
-
-        <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="/css/style.css">
 
     </head>
@@ -28,7 +25,25 @@
                 <div id="calender"><div id="calender-line"></div></div>
                 <div id="team-members"><ul></ul></div>
                 <div id="to-do-list"></div>
-                <div id="project-members"></div>
+                <div id="project-members">
+                    <button class="add-participant-btn" onclick="showParticipantModal()">Add Participant</button>
+                </div>
+
+                <div id="add-participant-modal">
+                    <div id="modal-content">
+                        <p id="exit-modal">X</p>
+
+                        <form onsubmit="submitModal(event)">
+                            <label for="fname">First name:</label><br>
+                            <input type="text" name="fname" placeholder="first name"><br>
+                            <label for="lname">Last name:</label><br>
+                            <input type="text" name="lname" placeholder="last name"><br>
+                            <label for="email">E-mail</label><br>
+                            <input type="email" name="email" placeholder="someone@example.com"><br>
+                            <button type="submit" name="submit">Save</button>
+                        </form>
+                    </div>
+                </div>
             
                 <!-- Color indicators with importance level -->
                 <div id="importance-lvl">
@@ -48,5 +63,6 @@
             </main>
         
         </div>
+        <script src="../javascript/taskPageScript.js"></script>
     </body>
  </html>
