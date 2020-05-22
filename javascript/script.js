@@ -68,7 +68,7 @@ function createProject() {
             name, date
         }
 
-        if (project) {
+        if (project.name && project.date) {
             projects.push(project);
             console.log(projects);
             localStorage.setItem(`projects`, JSON.stringify(projects));
