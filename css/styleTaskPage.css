@@ -47,9 +47,11 @@ body{
    
 }
 
-h3{
-    font-size: 20px;
+#open-modal-btn{
+    font-size: 30px;
     font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    margin-left: 9%;
    
 }
 
@@ -95,14 +97,7 @@ h3{
     justify-content: flex-start;
 }
 
-#add-project-btn{
-    background-color: aqua;
-    width: 500px;
-    height: 100px;
-    opacity: 0;
-  
-    
-}
+
 
 #new-project-modal{
     position: absolute;
