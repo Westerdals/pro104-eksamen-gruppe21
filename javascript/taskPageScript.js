@@ -4,6 +4,13 @@ function showParticipantModal(){
 function closeParticipantModal() {
     document.getElementById('add-participant-modal').style.display = "none";
 }
+function showTodoModal(){
+    document.getElementById("addTodoModal").style.display = 'block';
+}
+function closeTodoModal(){
+    document.getElementById('addTodoModal').style.display = 'none';
+}
+
 
 function submitModal(e){
     e.preventDefault();
@@ -17,7 +24,7 @@ function submitModal(e){
     console.log(participant);
     listOfUsers.push(participant);
     window.localStorage.setItem('user', JSON.stringify(listOfUsers));
-
+    renderParticipants();
     closeParticipantModal();
 }
 
@@ -31,8 +38,25 @@ function renderParticipants(){
             <div><p>${participant.firstName} ${participant.lastName} ${participant.email}</p></div>
         `;
     })
-    
-   
-
 }
- 
+
+function submitTodoModal(event) {
+    event.preventDefault();
+
+    const toDoList = document.getElementById('to-do-list');
+
+    var taskImportance;
+    const taskName = document.querySelector("[name='task']").value;
+    const radiobuttons = document.querySelectorAll("[name='importance']");
+
+    for (const radiobutton of radiobuttons){
+        if(radiobutton.checked){
+            taskImportance = radiobutton.value;
+            break;
+        }
+    }
+
+    console.log(taskName, taskImportance);
+
+    toDoList.innerHTML += `<p style="backgroundColor:>${taskName}</p>`;
+}
