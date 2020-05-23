@@ -1,3 +1,11 @@
+window.onload = init;
+
+function init(){
+    renderAssignments();
+}
+
+
+
 function showParticipantModal(){
     document.getElementById('add-participant-modal').style.display = 'block';
 }
@@ -91,6 +99,43 @@ function renderTodoList() {
     const toDoList = document.getElementById('to-do-list');
 
     for (var i=0; i<listOfTasks.length; i++) {
-        toDoList.innerHTML += `<p class="task-p-class" draggable="true">${listOfTasks[i].taskName}</p><div>`
+        toDoList.innerHTML += `<p id="draggable" class="task-p-class" draggable="true" ondragstart="drag(event)">${listOfTasks[i].taskName}</p>`
     }
+}
+function renderAssignments(){
+    const assignmentField = document.getElementById('calender-table');
+    const daysHeader = document.getElementById('days-header');
+
+    //Her må det komme en funksjon som henter antall dager prosjektet er, og lagre det antallet dager
+
+
+    daysHeader.innerHTML = `
+        <tr>
+            <th class="test" onclick="myfunc()">1</th>
+            <th class="test">2</th>
+            <th class="test">3</th>
+        </tr>
+    `;
+    assignmentField.innerHTML += `
+        <tr>
+            <th class="test container" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
+            <th class="test container"></th>
+            <th class="test container"></th>
+        </tr>
+    `
+}
+
+function allowDrop(ev){
+    ev.preventDefault();
+
+}
+function drag(ev){
+    ev.dataTransfer.setData('text/html', ev.target.id);
+}
+function drop(ev){
+    ev.preventDefault()
+    var data = ev.dataTransfer.getData("text/html");
+    var nodeCopy = document.getElementById(data).cloneNode(true);
+    nodeCopy.id = "newId";
+    ev.target.appendChild(nodeCopy);
 }
