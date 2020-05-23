@@ -91,6 +91,6 @@ function renderTodoList() {
     const toDoList = document.getElementById('to-do-list');
 
     for (var i=0; i<listOfTasks.length; i++) {
-        toDoList.innerHTML += `<div><p draggable="true">${listOfTasks[i].taskName}</p></div>`
+        toDoList.innerHTML += `<p class="task-p-class" draggable="true">${listOfTasks[i].taskName}</p><div>`
     }
 }
