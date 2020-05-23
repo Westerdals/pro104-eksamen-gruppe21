@@ -38,11 +38,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 1%;
-    width: 100%;
     margin-top: 2%;
     margin-bottom: 2%;
-    font-size: 500%;
+    font-size: 3rem;
     font-family: 'Montserrat', sans-serif;
    
 }
@@ -137,7 +135,7 @@ body{
     cursor: pointer;
 }
 #modal-content button{
-    margin-top: 20px;
+    margin-top: 4%;
     height: 20%;
     width: 40%;
     
