@@ -2,7 +2,7 @@
 /* Getting elements from HTML */
 var projectContainer = document.getElementById("projects-container");
 var newProject = document.getElementById("new-project-modal");
-var openModal = document.getElementById("open-modal");
+var openModal = document.getElementById("open-modal-btn");
 var exitModal = document.getElementById("exit-modal");
 var modalNameinput = document.getElementById("modal-name-input");
 var modalDateinput = document.getElementById("modal-date-input");
@@ -68,7 +68,7 @@ function createProject() {
             name, date
         }
 
-        if (project) {
+        if (project.name && project.date) {
             projects.push(project);
             console.log(projects);
             localStorage.setItem(`projects`, JSON.stringify(projects));
@@ -76,6 +76,9 @@ function createProject() {
             fetchProjects();
 
         }
+    }
+    else{
+        alert("Du har nådd max antall prosjekter");
     }
 
 
