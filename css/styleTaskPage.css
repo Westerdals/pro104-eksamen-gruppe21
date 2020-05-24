@@ -67,6 +67,7 @@ body{
     margin-left: 9%;
     margin-top: 1%;
    
+   
 }
 /* Contains the common css for projects */
 .div-common{
@@ -194,13 +195,14 @@ body{
     animation: move-txt 0.7s infinite alternate-reverse;
     
     
+    
 }
 
 #no-project-txt2{
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: white;
-    font-size: 200%;
+    font-size: 30px;
 }
 
 @keyframes move-txt{
