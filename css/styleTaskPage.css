@@ -11,92 +11,77 @@ body{
     border: 0px;
     height: 100%;
     width: 100%;
-    background-color: white;
+    background-color:pink;
     
    
 }
 
-/* Main container */
-#container {
-    background-color: #EBEBEB;
-    height: 65%;
+/* Main container for main container*/
+#main-container{
+    background-color:white;
+    height: 100%;
     width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-/* Header */
+/* Banner */
 #top-banner{
-    
     background-color: grey;
+    padding-top: 4%;
     width: 100%;
-    padding-bottom: 4%;
+   
 }
-
+/* Header */
 #toptext{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    font-size: 3rem;
+    width: 100%;
+    height: 11%;
+    font-size: 70px;
     font-family: 'Montserrat', sans-serif;
-   
+    background-color:white;
+    padding-top: 60px;
 }
 
-#open-modal-btn{
-    font-size: 30px;
-    font-family: 'Montserrat', sans-serif;
-    cursor: pointer;
-    margin-left: 9%;
-   
-}
-
+/* Container for the projects */
 #projects-container{
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 60%;
     
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
+    background-color: white;
     
 }
 
+/* Button to open the "new project modal" */
+#open-modal-btn{
+    font-size: 50px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    margin-left: 9%;
+    margin-top: 1%;
+   
+}
+/* Contains the common css for projects */
 .div-common{
     width: 25%;
     height: 40%; 
     margin: 2%;
     border-radius: 15px;
 }
-
+/* Contains the common css for text on project box */
 .div-common p{
     font-size: 40px;
     font-family: 'Montserrat', sans-serif;
     color: white;
 }
-
-
-.project{
-    padding: 50px 10px 50px 10px;
-    width: 450px;
-    height: 100px;
-    margin: 40px;
-}
-
-
-
-#new-project-section{
-    background-color: #EBEBEB;
-    display: flex;
-    height: 40%;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-
-
+/* Flexbox of modal that makes new projects */
 #new-project-modal{
     position: absolute;
     top: 0;
@@ -112,22 +97,18 @@ body{
     transition: visibility 0s opacity 0,5s;
     
 }
-
-
-
+/* Main box of modal that makes new projects */
 #modal-content{
     background-color: white;
     width: 20%;
-    height: 20%;
-    padding-bottom: 2%;
-    padding-top: 1%;
+    height: 35%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
 }
-
+/* CSS for text, input boxes and button on modal */
 #modal-content p{
     margin-left: 80%;
 }
@@ -136,7 +117,7 @@ body{
 }
 #modal-content button{
     margin-top: 4%;
-    height: 20%;
+    height: 13%;
     width: 40%;
     
     background-color: grey;
@@ -148,7 +129,8 @@ body{
 }
 
 .modal-input{
-    padding: 0.5em;
+    width: 40%;
+    padding: 1em;
     border: black solid 0.5px;
 }
 
@@ -156,6 +138,64 @@ body{
     background-color:#F2F2F2;
     cursor: text;
     
+}
+
+/* Modal that pops up when amount of projects=0 */
+#no-project-modal{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color:black;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+
+}
+
+#no-proj-txt-div{
+    margin-top: 20%;
+    background-color: yellow;
+    padding: 5%;
+}
+
+#no-proj-txt2-div{
+    position: absolute;
+    margin-top: 48%;
+    width: 50%;
+    height: 10%;
+    margin-left: 10%;
+    animation: move-txt 0.7s infinite alternate-reverse;
+    
+    
+}
+
+#no-project-txt{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 200%;
+    font-family: 'Montserrat', sans-serif;
+    color: teal;
+    
+
+    
+}
+
+#no-project-txt2{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 200%;
+}
+
+@keyframes move-txt{
+    from {margin-left: 10%;}
+    to {margin-left: 12%;}
 }
 
 

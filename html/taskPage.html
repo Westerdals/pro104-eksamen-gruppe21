@@ -14,41 +14,23 @@
 
 <body>
 
-
-
-
-    <!-- Main container -->
-
-    <div id="container">
+    <!-- Flex box for banner,header and projects  -->
+    <div id="main-container">
         <div id="top-banner"></div>
 
         <!-- Header -->
-
-      
         <p id="toptext">MY PROJECTS</p>
      
-            
-     
-
-
-
-
-
-
         <!-- Container for the projects -->
-        <section id="projects-container">
+        <section id="projects-container"> </section>
 
-
-        </section>
+        <h3 id="open-modal-btn">+ Nytt prosjekt</h3>
 
     </div>
   
 
-
-    <section id="new-project-section">
-        <h3 id="open-modal-btn">+ Nytt prosjekt</h3>
-       
-    </section>
+        
+    
 
 
     <!-- Modal for pop-up vindu -->
@@ -58,10 +40,24 @@
             <h2>Make a new project</h2>
             <label>Name: </label>
             <input type="text" id="modal-name-input" class="modal-input">
+            <label>Start date:</label>
+            <input type="date" id="modal-date-input" class="modal-input" placeholder="dd.mm.åååå">
             <label>End date:</label>
-            <input type="text" id="modal-date-input" class="modal-input">
+            <input type="date" id="modal-date-input" class="modal-input" placeholder="dd.mm.åååå">
             <button id="create-project-btn">Make new project</button>
         </div>
+    </div>
+
+    <div id="no-project-modal">
+        
+        <div id="no-proj-txt-div">
+            <p id="no-project-txt">YOU CURRENTLY HAVE ZERO PROJECTS</p>
+        </div>
+        
+        <div id="no-proj-txt2-div">
+             <p id="no-project-txt2"> &#8592 Click here to start</p>
+        </div>
+       
     </div>
 
 
