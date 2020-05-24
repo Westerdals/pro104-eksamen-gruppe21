@@ -1,53 +1,94 @@
-/* Main container */
-#container {
+*{
     margin: 0px;
     padding: 0px;
-    height: 900px;
-    width: 1600px;
-    background-color: #E8E8E8;
-    position: relative;
+    border: 0px;
 }
 
-/* Header */
-#top-banner{
-    height: 80px;
-    width: 1600px;
-    background-color: #D0D0D0;
+body{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #7ec586;
 }
-h1{
-    margin-left: 640px;;
-    font-size: 50px;
+
+/*Container for header,top text */
+#container {
+    background-color:white;
+    height: 60%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Banner */
+#top-banner{
+    background-color: grey;
+    padding-top: 4%;
+    width: 100%;
+}
+/* Top text */
+#toptext{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 70px;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    background-color:purple;
+  
 }
 
 /* Calender and team members */
 #calender{
-    position: absolute;
-    height: 250px;
-    width: 1300px;
+    display: flex;
+    height: 100%;
+    width: 90%;
     background-color: #F0F0F0;
-    left: 150px;
+    align-items: center;
+    justify-content: flex-start;
+
 }
 #calender-line{
     position: absolute;
     background-color: black;
-    height: 3px;
-    width: 1300px;
-    top: 30px;
+   
 }
-#team-members{
-    position: absolute;
-    height: 250px;
-    width: 200px;
-    left: 150px;
-    background-color: white;
+
+#list-flexbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+    background-color: rosybrown;
 }
+
+#to-do-list{
+    display: flex;
+    flex: 1;
+    background-color: #c895c8;
+    overflow: scroll;
+}
+
+
+/* Project members green */
+#project-members{
+    display: flex;
+    flex: 1;
+    background-color: red;
+    overflow: scroll;
+}
+
 /* Modal Section */
 #add-participant-modal {
     display: none;
-    position: absolute;
     background-color: rebeccapurple;
-    width: 250px;
-    height: 200px;
+    width: 20%;
+    height: 20%;
     padding-bottom: 20px;
     padding-top: 10px;
     text-align: center;
@@ -59,34 +100,9 @@ form label, p {
 #addTodoModal {
     display: none;
     background-color: grey;
-    width: 300px;
-    height: 300px;
-    z-index: 300;
+    width: 20%;
+    height: 20%;
 }
-
-/* To do list violet */
-#to-do-list{
-    position: absolute;
-    height: 250px;
-    width: 600px;
-    background-color: #c895c8;
-    top: 500px;
-    left: 150px;
-    overflow: scroll;
-}
-
-
-/* Project members green */
-#project-members{
-    position: absolute;
-    height: 250px;
-    width: 600px;
-    background-color: #7ec586;
-    top: 500px;
-    left: 850px;
-    overflow: scroll;
-}
-
 
 
 /* Color indicators and importance level */
@@ -130,7 +146,6 @@ form label, p {
 #important{
     position: absolute;
     bottom: 70px;
-    right: 320px;
     height: 20px;
     width: 20px;
     border-radius: 50%;
