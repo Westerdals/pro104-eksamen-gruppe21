@@ -4,6 +4,7 @@
         <title>IndexPage</title>
 
         <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/project-page.css">
 
     </head>
@@ -11,26 +12,32 @@
     <body>
         <!-- Main container -->
         <div id="container">
-            <div id="top-banner"></div>
-        
+             <div id="top-banner"></div>
+
             <!-- Header -->
-            <header>
-                <div id="headline">
-                    <h1>Webprosjekt</h1>
-                </div>
-            </header>
+            <p id="toptext">MY PROJECTS</p>
+
+            <div id="calender">
+                <table id="calender-table">
+                    <tr id="days-header"></tr>
+                </table>
+            </div>
+
+        </div>
         
             <!-- Main content on the webpage -->
-            <main>
-                <div id="calender"><table id="calender-table"><tr id="days-header"></tr></table></div>
+            
+            
                 
+        <div id="list-flexbox">
                 <div id="to-do-list">
                     <button class="add-todo-btn" onclick="showTodoModal()">Add Task</button>
                 </div>
                 <div id="project-members">
                     <button class="add-participant-btn" onclick="showParticipantModal()">Add Participant</button>
                 </div>
-
+         </div>
+<!---->
                 <div id="addTodoModal">
                     <div id="modal-todo-content">
                         <p id="exit-todo-modal">X</p>
@@ -78,9 +85,9 @@
                 
         
         
-            </main>
+           
         
-        </div>
+        
         <script src="../javascript/project-page.js"></script>
     </body>
  </html>
