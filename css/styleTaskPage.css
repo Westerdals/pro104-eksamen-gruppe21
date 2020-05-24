@@ -187,27 +187,23 @@ body{
 }
 
 #no-proj-txt2-div{
-    position: absolute;
-    margin-top: 49%;
-    width: 50%;
-    height: 10%;
-    margin-left: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4%;
+    margin-right: 18%;
     animation: move-txt 0.7s infinite alternate-reverse;
-    
-    
-    
 }
 
 #no-project-txt2{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    color: white;
     font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+    color: teal;
 }
 
 @keyframes move-txt{
-    from {margin-left: 10%;}
-    to {margin-left: 12%;}
+    from {margin-left: 0%;}
+    to {margin-left: 2%;}
 }
 
 
