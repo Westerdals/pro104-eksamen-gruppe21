@@ -1,0 +1,179 @@
+/* Main container */
+#container {
+    margin: 0px;
+    padding: 0px;
+    height: 900px;
+    width: 1600px;
+    background-color: #E8E8E8;
+    position: relative;
+}
+
+/* Header */
+#top-banner{
+    height: 80px;
+    width: 1600px;
+    background-color: #D0D0D0;
+}
+h1{
+    margin-left: 640px;;
+    font-size: 50px;
+}
+
+/* Calender and team members */
+#calender{
+    position: absolute;
+    height: 250px;
+    width: 1300px;
+    background-color: #F0F0F0;
+    left: 150px;
+}
+#calender-line{
+    position: absolute;
+    background-color: black;
+    height: 3px;
+    width: 1300px;
+    top: 30px;
+}
+#team-members{
+    position: absolute;
+    height: 250px;
+    width: 200px;
+    left: 150px;
+    background-color: white;
+}
+/* Modal Section */
+#add-participant-modal {
+    display: none;
+    position: absolute;
+    background-color: rebeccapurple;
+    width: 250px;
+    height: 200px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+form label, p {
+    color: white;
+}
+#addTodoModal {
+    display: none;
+    background-color: grey;
+    width: 300px;
+    height: 300px;
+    z-index: 300;
+}
+
+/* To do list violet */
+#to-do-list{
+    position: absolute;
+    height: 250px;
+    width: 600px;
+    background-color: #c895c8;
+    top: 500px;
+    left: 150px;
+    overflow: scroll;
+}
+
+
+/* Project members green */
+#project-members{
+    position: absolute;
+    height: 250px;
+    width: 600px;
+    background-color: #7ec586;
+    top: 500px;
+    left: 850px;
+    overflow: scroll;
+}
+
+
+
+/* Color indicators and importance level */
+.less-important-radio {
+    background-color: green;
+}
+.important-radio {
+    background-color: yellow;
+}
+.very-important-radio {
+    background-color: red;
+}
+.radio-div {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    text-align: center;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+
+/* Very important */
+#very-important{
+    position: absolute;
+    bottom: 100px;
+    right: 320px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #f51e1e;
+}
+#very-important-txt{
+    position: absolute;
+    right: -120px;
+    font-family: monospace;
+    top: -10px;
+}
+
+/* Important */
+#important{
+    position: absolute;
+    bottom: 70px;
+    right: 320px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #f5d364;
+}
+#important-txt{
+    position: absolute;
+    right: -67px;
+    font-family: monospace;
+    top: -10px;
+}
+
+/* Less important */
+#less-important{
+    position: absolute;
+    bottom: 40px;
+    right: 320px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #8eed96;
+}
+#less-important-txt{
+    position: absolute;
+    right: -120px;
+    font-family: monospace;
+    top: -10px;
+}
+/* Task Section */
+.task-p-class {
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.test {
+    border: 2px solid black;
+    padding: 5%;
+    width: 30px;
+    height: 30px;
+}
+#calender-table {
+    border-collapse: collapse;
+    
+}
