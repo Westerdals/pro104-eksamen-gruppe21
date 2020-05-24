@@ -2,6 +2,7 @@ window.onload = init;
 
 function init(){
     renderAssignments();
+    renderTodoList();
 }
 
 
@@ -108,6 +109,8 @@ function renderAssignments(){
 
     //Her må det komme en funksjon som henter antall dager prosjektet er, og lagre det antallet dager
 
+    //Her må det komme en funksjon som henter antall medlemmer det er i prosjektet
+    var numberOfUsers = ['Henrik', 'Elise', 'Iselin', 'Raheel'];
 
     daysHeader.innerHTML = `
         <tr>
@@ -116,13 +119,16 @@ function renderAssignments(){
             <th class="test">3</th>
         </tr>
     `;
-    assignmentField.innerHTML += `
+    for (var i = 0; i < numberOfUsers.length; i++){
+        assignmentField.innerHTML += `
         <tr>
-            <th class="test container" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
-            <th class="test container"></th>
-            <th class="test container"></th>
+            <th class="test container container${i}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
+            <th class="test container container${i}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
+            <th class="test container container${i}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
         </tr>
     `
+    }
+
 }
 
 function allowDrop(ev){
@@ -138,4 +144,22 @@ function drop(ev){
     var nodeCopy = document.getElementById(data).cloneNode(true);
     nodeCopy.id = "newId";
     ev.target.appendChild(nodeCopy);
+    console.log("hei");
+}
+//Left her
+function saveTaskAssignment(){
+    const assignedTasks = document.getElementsByClassName('container');
+    var localStoageRef = JSON.parse(window.localStorage.getItem('allocation')) || [];
+
+
+    for (var i = 0; i < assignedTasks.length; i++){
+        console.log(assignedTasks[i].getElementsByTagName('p')[0].innerHTML);
+
+        localStoageRef.push([[assignedTasks[i].getElementsByTagName('p')[0].innerHTML]]);
+        console.log(localStoageRef);
+
+    }
+        console.log(localStoageRef);
+    
+        window.localStorage.setItem('allocation', JSON.stringify(localStoageRef));
 }
