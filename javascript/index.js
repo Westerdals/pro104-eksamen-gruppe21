@@ -6,6 +6,7 @@ var openModal = document.getElementById("open-modal-btn");
 var exitModal = document.getElementById("exit-modal");
 var modalNameinput = document.getElementById("modal-name-input");
 var modalDateinput = document.getElementById("modal-date-input");
+var openNoProModal = document.getElementById("no-project-modal");
 
 var createProjectBtn = document.getElementById("create-project-btn");
 
@@ -21,14 +22,30 @@ createProjectBtn.onclick = createProject;
 
 /* Function that makes the "create procject" window pop up*/
 function showModal() {
-    newProject.style.visibility = "visible";
-    newProject.style.opacity = 1;
+
+    var counter = JSON.parse(window.localStorage.getItem("counter")) || 0;
+    if(counter < 6){
+        newProject.style.visibility = "visible";
+        newProject.style.opacity = 1;
+        openNoProModal.style.display = "none";
+        openNoProModal.style.opacity = "0";
+    }else{
+        alert("Du har lagd max antall prosjekter")
+    }
+        
+    
+    
 }
 
 /* Function that makes the "create project" window shut down*/
 function hideModal() {
     newProject.style.visibility = "hidden";
     newProject.style.opacity = 0;
+    var counter = JSON.parse(window.localStorage.getItem("counter")) || 0;
+    if(counter == 0){
+        openNoProModal.style.display = "flex";
+        openNoProModal.style.opacity = "0.5";
+    }
 }
 
 
@@ -37,53 +54,60 @@ function hideModal() {
 window.onload = init;
 function init() {
 
+    var counter = JSON.parse(window.localStorage.getItem("counter")) || 0;
+    if(counter == 0){
+        openNoProModal.style.display = "flex";
+        openNoProModal.style.opacity = "0.5";
+    }
+
 
     fetchProjects()
 }
+
 function createProject() {
-
-    var projects = JSON.parse(window.localStorage.getItem("projects")) || [];
-
-    var counter = JSON.parse(window.localStorage.getItem("counter")) || 0;
-
-
-
-
-    counter = parseInt(counter);
-    counter++;
-    window.localStorage.setItem("counter", JSON.stringify(counter));
-
-    console.log(counter);
-
-    if (counter < 7) {
-
-        newProject.style.visibility = "hidden";
-        newProject.style.opacity = 0;
-
-        /*Saves and publish local storage value*/
-        var name = modalNameinput.value;
-        var date = modalDateinput.value;
-
-        var project = {
-            name, date
+   
+     var name = modalNameinput.value;
+     var date = modalDateinput.value;
+        
+     var project = {
+         name, date
         }
 
+
         if (project.name && project.date) {
+
+            var projects = JSON.parse(window.localStorage.getItem("projects")) || [];
+
+            var counter = JSON.parse(window.localStorage.getItem("counter")) || 0;
+        
+            counter = parseInt(counter);
+            counter++;
+            window.localStorage.setItem("counter", JSON.stringify(counter));
+        
+            console.log(counter);
+        
+            
+        
+                newProject.style.visibility = "hidden";
+                newProject.style.opacity = 0;
+        
+                /*Saves and publish local storage value*/
+                
+
             projects.push(project);
             console.log(projects);
             localStorage.setItem(`projects`, JSON.stringify(projects));
 
             fetchProjects();
 
+        }else{
+            alert("Du må ha input")
         }
-    }
-    else{
-        alert("Du har nådd max antall prosjekter");
-    }
+    
+   
 
 
 }
-
 
 
 function fetchProjects() {
@@ -100,7 +124,7 @@ function fetchProjects() {
         projectContainer.appendChild(projectElement);
 
 
-        var colorArray = ["#333", "#444", "#343", "#121", "#111", "#345"];
+        var colorArray = ["#FF9AA2", "#E2F0CB", "#FFDAC1", "#C7CEEA", "#FFB7B2", "#B5EAD7"];
 
         var color = colorArray[i];
 
@@ -111,14 +135,5 @@ function fetchProjects() {
     }
 
 
-
-
-
-
-
-
-
-
-
-
 }
+
