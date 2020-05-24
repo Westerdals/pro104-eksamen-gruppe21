@@ -124,7 +124,7 @@ function fetchProjects() {
         projectContainer.appendChild(projectElement);
 
 
-        var colorArray = ["#333", "#444", "#343", "#121", "#111", "#345"];
+        var colorArray = ["#FF9AA2", "#E2F0CB", "#FFDAC1", "#C7CEEA", "#FFB7B2", "#B5EAD7"];
 
         var color = colorArray[i];
 

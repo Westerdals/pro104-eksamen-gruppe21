@@ -61,7 +61,7 @@ body{
 
 /* Button to open the "new project modal" */
 #open-modal-btn{
-    font-size: 50px;
+    font-size: 30px;
     font-family: 'Montserrat', sans-serif;
     cursor: pointer;
     margin-left: 9%;
@@ -158,31 +158,41 @@ body{
 }
 
 #no-proj-txt-div{
-    margin-top: 20%;
-    background-color: yellow;
-    padding: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 50%;
+    width: 50%;
+    margin-top: 16%;
+}
+
+#no-project-txt{
+    position: absolute;
+    width: 30%;
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+    color: teal;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    
+}
+
+#notes-pic{
+    position: relative;
+    height: 100%;
+    width: 100%;
 }
 
 #no-proj-txt2-div{
     position: absolute;
-    margin-top: 48%;
+    margin-top: 49%;
     width: 50%;
     height: 10%;
     margin-left: 10%;
     animation: move-txt 0.7s infinite alternate-reverse;
     
-    
-}
-
-#no-project-txt{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 200%;
-    font-family: 'Montserrat', sans-serif;
-    color: teal;
-    
-
     
 }
 
