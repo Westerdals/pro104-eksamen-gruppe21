@@ -97,10 +97,10 @@ function submitTodoModal(event) {
 
 function renderTodoList() {
     const listOfTasks = JSON.parse(window.localStorage.getItem('listOfTasks')) || [];
-    const toDoList = document.getElementById('to-do-list');
+    const toDoList = document.getElementById('to-do-list-tasks');
 
     for (var i=0; i<listOfTasks.length; i++) {
-        toDoList.innerHTML += `<p id="draggable${i}" class="task-p-class" draggable="true" ondragstart="drag(event)">${listOfTasks[i].taskName}</p>`
+        toDoList.innerHTML += `<p style="background-color:${listOfTasks[i].taskImportance};" id="draggable${i}" class="task-p-class" draggable="true" ondragstart="drag(event)">${listOfTasks[i].taskName}</p>`
     }
 }
 function renderAssignments(){

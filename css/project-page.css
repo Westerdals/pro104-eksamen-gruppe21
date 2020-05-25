@@ -75,6 +75,14 @@ body{
     width: 40%;
     flex-direction: column;
     background-color: #c895c8;
+}
+
+#to-do-list-tasks{
+    display: flex;
+    height: 90%;
+    width: 40%;
+    flex-direction: column;
+    background-color:purple;
     overflow: scroll;
 }
 
