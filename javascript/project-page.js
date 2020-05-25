@@ -196,6 +196,7 @@ function submitTodoModal(event) {
     console.log(projectApp);
     
     //window.localStorage.setItem('listOfTasks', JSON.stringify(listOfTasks));
+    closeTodoModal();
 
 }
 
@@ -288,12 +289,28 @@ function saveTaskAssignment(){
     var taskAssignement = JSON.parse(window.localStorage.getItem('allocation')) || [];
     projectApp.selectedProject.taskAllocation = [];
     var projectList = projectApp.allProjects;
+    var multiArray = [];
+    
 
-    for (var i = 0; i < containers.length; i++){
-        console.log("Hei jeg er tom");
-        console.log(containers[i]);
-        projectList[projectApp.selectedProject.indexLocation].taskAllocation.push([containers[i].innerHTML]);
+    for (var i = 0; i < projectApp.selectedProject.users.length; i++){
+        multiArray.push([])
+        var participantColumn = document.getElementById(`participantColumn${i}`)
+        for (var j = 1; j < projectApp.selectedProject.duration + 1; j++){
+            dayColumn = participantColumn.getElementsByTagName("th")[j];
+            console.log(dayColumn);
+            
+            
+
+            
+
+            
+        }
+        
+        //console.log(containers[i]);
+        //projectList[projectApp.selectedProject.indexLocation].taskAllocation.push([containers[i].innerHTML]);
     }
+    console.log(multiArray);
+    
     window.localStorage.setItem('projects', JSON.stringify(projectList));
 
 
