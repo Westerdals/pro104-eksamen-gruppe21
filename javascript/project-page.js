@@ -169,12 +169,22 @@ function renderAssignments(){
    
 
     daysHeader.innerHTML = `
-        <tr>
-            <th class="test id=day">1</th>
-            <th class="test">2</th>
-            <th class="test">3</th>
-        </tr>
+        <th id="dateDisplay">
+
+        </th>
     `;
+
+    console.log(daysHeader);
+
+    var dateDisplay = document.getElementById('dateDisplay');
+    console.log(dateDisplay);
+
+    for (var i = 0; i < lengthInDays; i++){
+        daysHeader.innerHTML += `
+            <th class="test"></th>
+        `;
+    }
+
     console.log(listOfUsers);
     for (var i = 0; i < listOfUsers.length; i++){
         assignmentField.innerHTML += `
