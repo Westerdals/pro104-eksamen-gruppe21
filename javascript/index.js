@@ -30,7 +30,7 @@ function showModal() {
         openNoProModal.style.display = "none";
         openNoProModal.style.opacity = "0";
     }else{
-        alert("Du har lagd max antall prosjekter")
+        alert("Du har lagd max antall prosjekter");
     }
         
     
@@ -62,6 +62,7 @@ function init() {
 
 
     fetchProjects()
+    prepareForRedirect();
 }
 
 function createProject() {
@@ -71,7 +72,7 @@ function createProject() {
         
      var project = {
          name, date
-        }
+        };
 
 
         if (project.name && project.date) {
@@ -101,7 +102,7 @@ function createProject() {
             fetchProjects();
 
         }else{
-            alert("Du må ha input")
+            alert("Du må ha input");
         }
     
    
@@ -118,7 +119,7 @@ function fetchProjects() {
 
     for (var i = 0; i < projects.length; i++) {
         var projectElement = document.createElement("div");
-        projectElement.innerHTML = `<p>${projects[i].name} <br> ${projects[i].date}</p>`;
+        projectElement.innerHTML = `<p>${projects[i].name}</p><p>${projects[i].date}</p>`;
         projectElement.classList.add(`div${i}`);
         projectElement.classList.add(`div-common`);
         projectContainer.appendChild(projectElement);
@@ -133,7 +134,26 @@ function fetchProjects() {
 
         projectElement.style.backgroundColor = color;
     }
-
-
 }
+function prepareForRedirect(){
+    var dataForForwarding = {};
+    var projectForForwarding = document.getElementsByClassName('div-common');
+    
+    console.log(projectForForwarding);
+// Her bruker vi let-nøkkelordet for å gi rett scope tilgag til teller variabelen (i). (Block scope)
 
+    for (let i = 0; i < projectForForwarding.length; i++) {
+        projectForForwarding[i].addEventListener('click',() => {
+            var specificProject = projectForForwarding[i];
+            var projectName = specificProject.getElementsByTagName('p')[0].innerHTML;
+            var projectStartDate = specificProject.getElementsByTagName('p')[1].innerHTML;
+            
+            dataForForwarding = {projectName, projectStartDate};
+            console.log(dataForForwarding);
+
+            window.sessionStorage.setItem('projectForForwadring', JSON.stringify(dataForForwarding));
+
+            window.location.href = "project-page.html";
+        })
+    }
+}

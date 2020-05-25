@@ -100,7 +100,7 @@ function renderTodoList() {
     const toDoList = document.getElementById('to-do-list');
 
     for (var i=0; i<listOfTasks.length; i++) {
-        toDoList.innerHTML += `<p id="draggable" class="task-p-class" draggable="true" ondragstart="drag(event)">${listOfTasks[i].taskName}</p>`
+        toDoList.innerHTML += `<p id="draggable${i}" class="task-p-class" draggable="true" ondragstart="drag(event)">${listOfTasks[i].taskName}</p>`
     }
 }
 function renderAssignments(){
@@ -114,7 +114,7 @@ function renderAssignments(){
 
     daysHeader.innerHTML = `
         <tr>
-            <th class="test" onclick="myfunc()">1</th>
+            <th class="test id=day">1</th>
             <th class="test">2</th>
             <th class="test">3</th>
         </tr>
@@ -144,12 +144,15 @@ function drop(ev){
     var nodeCopy = document.getElementById(data).cloneNode(true);
     nodeCopy.id = "newId";
     ev.target.appendChild(nodeCopy);
-    console.log("hei");
+    console.log("hei"); 
 }
 //Left her
 function saveTaskAssignment(){
     const assignedTasks = document.getElementsByClassName('container');
-    var localStoageRef = JSON.parse(window.localStorage.getItem('allocation')) || [];
+    var taskAssignement = JSON.parse(window.localStorage.getItem('allocation')) || [];
+    
+
+    
 
 
     for (var i = 0; i < assignedTasks.length; i++){
