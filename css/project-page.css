@@ -205,9 +205,13 @@ form label, p {
     border-collapse: collapse;
     table-layout: auto;
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 10%;
     
 =======
     width: 40%;
 >>>>>>> 03a3dfccaa02dbb0871a79420c8a539cdc1d6769
+=======
+    width: 30%;
+>>>>>>> f634b388417659cec5be0248fe06dd0ea545985f
 }
