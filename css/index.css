@@ -212,8 +212,21 @@ body{
     to {margin-left: 2%;}
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    /* Makes projects shorter for mobile format */
     .div-common{
         height: 20%;
+    }
+    
+    /* make new project button flex and hover effect */
+    #open-modal-btn{
+        transform: scale(2);
+    }
+    #open-modal-btn:hover{
+    transform: scale(2.5);
+}
+    .open-modal-btn-container{
+        display: flex;
+        justify-content: center;
     }
 }
 
