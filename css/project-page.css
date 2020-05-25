@@ -140,11 +140,56 @@ form label, p {
     color: white;
 }
 #addTodoModal {
-    display: none;
-    background-color: grey;
-    width: 20%;
-    height: 20%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    background-color: rgba(0,0,0,0.7);
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;  
 }
+
+.modal-content-design{
+    background-color: white;
+    width: 20%;
+    height: 35%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.modal-content-design form{
+    display: flex;
+    height: 90%;
+    width: 100%;
+    margin-top: 10%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+   
+}
+
+.modal-content-design p{
+    margin-left: 80%;
+    margin-top: 4%;
+    color: black;
+    background-color: rosybrown;
+}
+.modal-content-design label{
+    color: black;
+}
+
+.modal-content-design button{
+    background-color: rosybrown;
+}
+
+.modal-content-design input{
+    border: 1px solid black;
+}
+
+
 
 
 /* Color indicators and importance level */
