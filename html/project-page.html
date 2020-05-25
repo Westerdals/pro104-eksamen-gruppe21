@@ -23,20 +23,41 @@
                 </table>
             </div>
 
+            <div id="list-flexbox">
+                <div id="to-do-list">
+                    <div id="to-do-list-tasks">
+                        <button class="add-todo-btn" onclick="showTodoModal()">Add Task</button>
+                    </div>
+                </div>
+                <div id="project-members">
+                    <div id="project-members-memb">
+                        <button class="add-participant-btn" onclick="showParticipantModal()">Add Participant</button>
+                    </div>
+                </div>
+            </div>
+
+         <!-- Color indicators with importance level -->
+         <div id="importance-lvl">
+            <div id="very-important" class="level-of-important">
+                <p id="very-important-txt">Veldig viktig</p>
+            </div>
+            <div id="important" class="level-of-important">
+                <p id="important-txt">Viktig</p>
+            </div>
+            <div id="less-important" class="level-of-important">
+                <p id="less-important-txt">Mindre viktig</p>
+            </div>
+        </div>
+
+
+
         </div>
         
             <!-- Main content on the webpage -->
             
             
                 
-        <div id="list-flexbox">
-                <div id="to-do-list">
-                    <button class="add-todo-btn" onclick="showTodoModal()">Add Task</button>
-                </div>
-                <div id="project-members">
-                    <button class="add-participant-btn" onclick="showParticipantModal()">Add Participant</button>
-                </div>
-         </div>
+        
 <!---->
                 <div id="addTodoModal">
                     <div id="modal-todo-content">
@@ -70,18 +91,7 @@
                     </div>
                 </div>
             
-                <!-- Color indicators with importance level -->
-                <div id="importance-lvl">
-                    <div id="very-important" class="level-of-important">
-                        <p id="very-important-txt">Veldig viktig</p>
-                    </div>
-                    <div id="important" class="level-of-important">
-                        <p id="important-txt">Viktig</p>
-                    </div>
-                    <div id="less-important" class="level-of-important">
-                        <p id="less-important-txt">Mindre viktig</p>
-                    </div>
-                </div>
+                
                 
         
         

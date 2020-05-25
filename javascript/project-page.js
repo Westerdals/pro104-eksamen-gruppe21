@@ -39,7 +39,7 @@ function submitModal(e){
 
 function renderParticipants(){
     participants = JSON.parse(window.localStorage.getItem('user')) || [];
-    const memberList = document.getElementById("project-members");
+    const memberList = document.getElementById("project-members-memb");
     //Printing all names to the screen for each participant in localStorage using the forEach methord with an arrow function
     participants.forEach(participant => {
         console.log(participant.firstName);
@@ -54,7 +54,7 @@ function submitTodoModal(event) {
 
     var listOfTasks = JSON.parse(window.localStorage.getItem('listOfTasks')) || [];
 
-    const toDoList = document.getElementById('to-do-list');
+    const toDoList = document.getElementById('to-do-list-tasks');
     const taskName = document.querySelector("[name='task']").value;
     const radiobuttons = document.querySelectorAll("[name='importance']");
     var taskImportance;
