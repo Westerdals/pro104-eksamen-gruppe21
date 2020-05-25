@@ -76,9 +76,6 @@ function submitModal(e){
     
     console.log(currentProject);
 
-
-
-    
     renderParticipants();
     closeParticipantModal();
 }
@@ -87,6 +84,7 @@ function renderParticipants(){
     participants = projectApp.selectedProject.users || [];
     const memberList = document.getElementById("project-members-memb");
     //Printing all names to the screen for each participant in localStorage using the forEach methord with an arrow function
+    memberList.innerHTML = `<button class="add-participant-btn" onclick="showParticipantModal()">Add Participant</button>`;
     for (var i = 0; i < participants.length;i++){
         memberList.innerHTML += `
             <div><p>${participants[i].firstName} ${participants[i].lastName} ${participants[i].email}</p></div>
@@ -96,6 +94,9 @@ function renderParticipants(){
 
 function submitTodoModal(event) {
     event.preventDefault();
+
+    var currentProject = projectApp.selectedProject;
+    var projectList = projectApp.allProjects;
 
     // var listOfTasks = JSON.parse(window.localStorage.getItem('listOfTasks')) || [];
     var listOfTasks = projectApp.selectedProject.tasks || [];
@@ -136,7 +137,11 @@ function submitTodoModal(event) {
     console.log(task);
     listOfTasks.push(task);
     projectApp.selectedProject.tasks = listOfTasks;
+    projectList[currentProject.indexLocation].tasks = listOfTasks;
+
+    window.localStorage.setItem('projects', JSON.stringify(projectList));
     console.log(projectApp);
+    
     //window.localStorage.setItem('listOfTasks', JSON.stringify(listOfTasks));
 
 }
@@ -144,6 +149,8 @@ function submitTodoModal(event) {
 function renderTodoList() {
     //const listOfTasks = JSON.parse(window.localStorage.getItem('listOfTasks')) || [];
     var listOfTasks = projectApp.selectedProject.tasks || [];
+    console.log(listOfTasks);
+    
     const toDoList = document.getElementById('to-do-list-tasks');
 
     for (var i=0; i<listOfTasks.length; i++) {
@@ -154,10 +161,12 @@ function renderAssignments(){
     const assignmentField = document.getElementById('calender-table');
     const daysHeader = document.getElementById('days-header');
 
-    //Her må det komme en funksjon som henter antall dager prosjektet er, og lagre det antallet dager
+    var listOfUsers = projectApp.selectedProject.users || [];
 
+    //Her må det komme en funksjon som henter antall dager prosjektet er, og lagre det antallet dager
+    var lengthInDays = 8;
     //Her må det komme en funksjon som henter antall medlemmer det er i prosjektet
-    var numberOfUsers = ['Henrik', 'Elise', 'Iselin', 'Raheel'];
+   
 
     daysHeader.innerHTML = `
         <tr>
@@ -166,14 +175,28 @@ function renderAssignments(){
             <th class="test">3</th>
         </tr>
     `;
-    for (var i = 0; i < numberOfUsers.length; i++){
+    console.log(listOfUsers);
+    for (var i = 0; i < listOfUsers.length; i++){
         assignmentField.innerHTML += `
-        <tr>
-            <th class="test container container${i}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
-            <th class="test container container${i}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
-            <th class="test container container${i}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
-        </tr>
-    `
+            <tr id="participantColumn${i}">
+                <th id="participantName${i}" class="test">${listOfUsers[i].firstName}</th>
+            </tr>
+        `;
+        for (var j = 0; j < lengthInDays;j++){
+            var participantColumn = document.getElementById(`participantColumn${i}`);
+            participantColumn.innerHTML += `
+                <th class="test container container${i}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
+            `;
+        }
+
+
+       // assignmentField.innerHTML += `
+        //<tr>
+            //<th class="test container container${i}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
+            //<th class="test container container${i}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
+            //<th class="test container container${i}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
+        //</tr>
+   // `
     }
 
 }
