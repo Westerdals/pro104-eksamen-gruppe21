@@ -51,7 +51,6 @@ body{
     display: flex;
     width: 100%;
     height: 60%;
-    
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
@@ -66,8 +65,11 @@ body{
     cursor: pointer;
     margin-left: 9%;
     margin-top: 1%;
-   
-   
+    width: 15%
+}
+
+#open-modal-btn:hover{
+    transform: scale(1.1)
 }
 /* Contains the common css for projects */
 .div-common{
@@ -76,6 +78,9 @@ body{
     margin: 2%;
     border-radius: 15px;
     cursor: pointer;
+}
+.div-common:hover{
+    border: 1px solid black;
 }
 /* Contains the common css for text on project box */
 .div-common p{
@@ -206,6 +211,10 @@ body{
     from {margin-left: 0%;}
     to {margin-left: 2%;}
 }
-
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    .div-common{
+        height: 20%;
+    }
+}
 
 
