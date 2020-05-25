@@ -1,11 +1,13 @@
 window.onload = init;
 
+var projectApp = {};
+
 function init(){
+    renderSelectedProject();
     renderAssignments();
     renderTodoList();
+    renderParticipants();
 }
-
-
 
 function showParticipantModal(){
     document.getElementById('add-participant-modal').style.display = 'block';
@@ -20,39 +22,83 @@ function closeTodoModal(){
     document.getElementById('addTodoModal').style.display = 'none';
 }
 
+function renderSelectedProject(){
+    var selectedProject = JSON.parse(window.sessionStorage.getItem('projectForForwadring'));
+    var allProjects = JSON.parse(window.localStorage.getItem('projects'));
+
+    for (var i = 0; i < allProjects.length; i++){
+        if(allProjects[i].name == selectedProject.projectName) {
+            selectedProject = allProjects[i];
+            projectApp.selectedProject = allProjects[i];
+            projectApp.selectedProject.indexLocation = i;
+            projectApp.allProjects = allProjects;
+        }
+    }
+
+
+    document.getElementById('toptext').innerHTML = selectedProject.name;
+
+
+}
+
+
 
 function submitModal(e){
     e.preventDefault();
+    var currentProject = projectApp.selectedProject;
+    var projectList = projectApp.allProjects;
+
     const firstName = document.querySelector("[name='fname']").value;
     const lastName = document.querySelector("[name='lname']").value;
     const email = document.querySelector("[name='email']").value;
 
-    const listOfUsers = JSON.parse(window.localStorage.getItem('user')) || [];
-
-    const participant = {firstName, lastName, email};
-    console.log(participant);
+    var listOfUsers = projectApp.selectedProject.users || [];
+    console.log(listOfUsers);
+    var  participant = {firstName, lastName, email};
+    
     listOfUsers.push(participant);
-    window.localStorage.setItem('user', JSON.stringify(listOfUsers));
+    console.log(listOfUsers);
+
+    projectApp.selectedProject.users = listOfUsers;
+    projectList[currentProject.indexLocation].users = listOfUsers;
+
+    window.localStorage.setItem('projects', JSON.stringify(projectList));
+
+   /* for (var i = 0;i<projectList.length;i++){
+        if (projectList[i].name == currentProject.projectName){
+            projectList[i].users = listOfUsers;
+            window.localStorage.setItem('projects', JSON.stringify(projectList));
+            currentProject = JSON.parse(window.localStorage.getItem('projects'));
+        }
+    }
+
+*/
+    
+    console.log(currentProject);
+
+
+
+    
     renderParticipants();
     closeParticipantModal();
 }
 
 function renderParticipants(){
-    participants = JSON.parse(window.localStorage.getItem('user')) || [];
+    participants = projectApp.selectedProject.users || [];
     const memberList = document.getElementById("project-members-memb");
     //Printing all names to the screen for each participant in localStorage using the forEach methord with an arrow function
-    participants.forEach(participant => {
-        console.log(participant.firstName);
+    for (var i = 0; i < participants.length;i++){
         memberList.innerHTML += `
-            <div><p>${participant.firstName} ${participant.lastName} ${participant.email}</p></div>
+            <div><p>${participants[i].firstName} ${participants[i].lastName} ${participants[i].email}</p></div>
         `;
-    })
+    }
 }
 
 function submitTodoModal(event) {
     event.preventDefault();
 
-    var listOfTasks = JSON.parse(window.localStorage.getItem('listOfTasks')) || [];
+    // var listOfTasks = JSON.parse(window.localStorage.getItem('listOfTasks')) || [];
+    var listOfTasks = projectApp.selectedProject.tasks || [];
 
     const toDoList = document.getElementById('to-do-list-tasks');
     const taskName = document.querySelector("[name='task']").value;
@@ -62,7 +108,6 @@ function submitTodoModal(event) {
     for (const radiobutton of radiobuttons){
         if(radiobutton.checked){
             taskImportance = parseInt(radiobutton.value);
-
             break;
         }
     }
@@ -74,7 +119,7 @@ function submitTodoModal(event) {
             break;
         case 1:
             toDoList.innerHTML += `<div class="task-p-class" style="background-color:#ffff00;">${taskName}</div>`;
-            taskImportance = 'ffff00';
+            taskImportance = '#ffff00';
             break;
         case 2:
             toDoList.innerHTML += `<div class="task-p-class" style="background-color:#ff0000;">${taskName}</div>`;
@@ -90,13 +135,15 @@ function submitTodoModal(event) {
     const task = {taskName, taskImportance};
     console.log(task);
     listOfTasks.push(task);
-
-    window.localStorage.setItem('listOfTasks', JSON.stringify(listOfTasks));
+    projectApp.selectedProject.tasks = listOfTasks;
+    console.log(projectApp);
+    //window.localStorage.setItem('listOfTasks', JSON.stringify(listOfTasks));
 
 }
 
 function renderTodoList() {
-    const listOfTasks = JSON.parse(window.localStorage.getItem('listOfTasks')) || [];
+    //const listOfTasks = JSON.parse(window.localStorage.getItem('listOfTasks')) || [];
+    var listOfTasks = projectApp.selectedProject.tasks || [];
     const toDoList = document.getElementById('to-do-list-tasks');
 
     for (var i=0; i<listOfTasks.length; i++) {
@@ -151,8 +198,6 @@ function drop(ev){
 function saveTaskAssignment(){
     const assignedTasks = document.getElementsByClassName('container');
     var taskAssignement = JSON.parse(window.localStorage.getItem('allocation')) || [];
-    
-
     
 
 
