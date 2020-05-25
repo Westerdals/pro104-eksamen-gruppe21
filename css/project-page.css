@@ -203,6 +203,7 @@ form label, p {
 }
 #calender-table {
     border-collapse: collapse;
-    width: 20%;
+    table-layout: auto;
+    width: 100%;
     
 }
