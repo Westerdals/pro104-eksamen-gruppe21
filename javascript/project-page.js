@@ -10,13 +10,13 @@ function init(){
 }
 
 function showParticipantModal(){
-    document.getElementById('add-participant-modal').style.display = 'block';
+    document.getElementById('add-participant-modal').style.display = 'flex';
 }
 function closeParticipantModal() {
     document.getElementById('add-participant-modal').style.display = "none";
 }
 function showTodoModal(){
-    document.getElementById("addTodoModal").style.display = 'block';
+    document.getElementById("addTodoModal").style.display = 'flex';
 }
 function closeTodoModal(){
     document.getElementById('addTodoModal').style.display = 'none';
@@ -84,13 +84,12 @@ function getDateDifference(){
 
             projectApp.selectedProject.duration = totalDays;
             //Checks if the current year is a leap year, and if the projects start month is February. If both is true the daysInstartMonth will have 29 days
-        } else if (((currentYear % 4 == 0) && (currentYear % 100 != 0)) || (currentYear % 400 == 0) && startMonth == 1){
+        } else if (((currentYear % 4 == 0) && (currentYear % 100 != 0)) || (currentYear % 400 == 0) && (startMonth == 1)){
             daysInStartMonth = 29;
             console.log(startDayNumber, endDayNumber);
             var daysLeftInStartMonth = daysInStartMonth - startDayNumber;
             var totalDays = daysLeftInStartMonth + endDayNumber;
             projectApp.selectedProject.duration = totalDays;
-
         }
     }
     return projectApp.selectedProject.duration;
@@ -237,7 +236,7 @@ function renderAssignments(){
 
     for (var i = 0; i < lengthInDays; i++){
         daysHeader.innerHTML += `
-            <th class="test"></th>
+            <th class="test">${i}</th>
         `;
     }
 
@@ -251,7 +250,7 @@ function renderAssignments(){
         for (var j = 0; j < lengthInDays;j++){
             var participantColumn = document.getElementById(`participantColumn${i}`);
             participantColumn.innerHTML += `
-                <th class="test container container${i}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
+                <th class="test container container${i}${j}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
             `;
         }
 
@@ -285,12 +284,22 @@ function drop(ev){
 }
 
 function saveTaskAssignment(){
-    const assignedTasks = document.getElementsByClassName('container');
+    const containers = document.getElementsByClassName('container');
     var taskAssignement = JSON.parse(window.localStorage.getItem('allocation')) || [];
-    
+    projectApp.selectedProject.taskAllocation = [];
+    var projectList = projectApp.allProjects;
+
+    for (var i = 0; i < containers.length; i++){
+        console.log("Hei jeg er tom");
+        console.log(containers[i]);
+        projectList[projectApp.selectedProject.indexLocation].taskAllocation.push([containers[i].innerHTML]);
+    }
+    window.localStorage.setItem('projects', JSON.stringify(projectList));
 
 
-    for (var i = 0; i < assignedTasks.length; i++){
+
+
+    /*for (var i = 0; i < assignedTasks.length; i++){
         console.log(assignedTasks[i].getElementsByTagName('p')[0].innerHTML);
 
         localStoageRef.push([[assignedTasks[i].getElementsByTagName('p')[0].innerHTML]]);
@@ -299,5 +308,5 @@ function saveTaskAssignment(){
     }
         console.log(localStoageRef);
     
-        window.localStorage.setItem('allocation', JSON.stringify(localStoageRef));
+        window.localStorage.setItem('allocation', JSON.stringify(localStoageRef)); */
 }
