@@ -35,24 +35,24 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 11%;
     width: 100%;
-    margin-bottom: 2%;
-    font-size: 70px;
+    margin-bottom: 30px;
+    font-size: 50px;
     font-family: 'Montserrat', sans-serif;
     color: black;
-    background-color:purple;
+    margin-top: 1%;
 }
 
 /* Calender and team members */
 #calender{
     display: flex;
-    height: 40%;
+    height: 35%;
     width: 90%;
-    background-color:pink;
+    background-color: gainsboro;
     align-items: center;
     justify-content: flex-start;
-    z-index: 1000;
+    margin-bottom: 40px;
+
 
 }
 #calender-line{
@@ -62,43 +62,67 @@ body{
 
 #list-flexbox{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    height: 30%;
-    background-color: rosybrown;
+    width: 90%;
+    height: 20%;
+    margin-bottom: 30px;
+
+}
+
+.common-listbox-prop{
+    display: flex;
+    height: 100%;
+    width: 47%;
+    overflow: scroll;
+    justify-content: space-between;  
+}
+
+.common-list-prop{
+    display: flex;
+    height: 90%;
+    width: 80%;
+    flex-direction: column;
+    overflow: scroll;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #to-do-list{
-    display: flex;
-    height: 90%;
-    width: 40%;
-    flex-direction: column;
-    background-color: #c895c8;
+    background-color:#FFB7B2;
 }
 
 #to-do-list-tasks{
-    display: flex;
-    height: 90%;
-    width: 40%;
-    flex-direction: column;
-    background-color:purple;
-    overflow: scroll;
+    background-color: #FFB7B2;
 }
 
 #to-do-list button{
-    width: 10%;
+    width: 20%;
     height: 10%;
+    margin-right: 6%;
+    background-color: #FFB7B2;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    text-align: end;
+
 }
 
 
 /* Project members green */
 #project-members{
-    display: flex;
-    height: 90%;
-    width: 40%;
-    background-color: red;
-    overflow: scroll;
+    background-color:#E2F0CB;
+}
+
+#project-members-memb{
+    background-color: #E2F0CB;
+}
+#project-members button{
+    width: 20%;
+    height: 10%;
+    margin-right: 3%;
+    text-align: end;
+    background-color: #E2F0CB;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
 }
 
 /* Modal Section */
@@ -143,49 +167,75 @@ form label, p {
 }
 
 #importance-lvl{
-    height: 15%;
-    width: 100%;
-    background-color: yellow;
+    height: 12%;
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+   
+}
+
+#color-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 70%;
+}
+
+#color-txt-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-left: 20px;
+    margin-right: 100px;
+    flex-direction: column;
+    height: 70%;
+}
+
+#color-txt-box p{
+    font-family: 'Montserrat', sans-serif;
+}
+.importance-color{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+
+
+.level-of-important{
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
 /* Very important */
-#very-important{
-    width: 20px;
-    border-radius: 50%;
+#very-important-color{
     background-color: #f51e1e;
 }
 #very-important-txt{
-
     font-family: monospace;
+    color:black;
     
 }
 
 /* Important */
-#important{
-    width: 20px;
-    border-radius: 50%;
+#important-color{
     background-color: #f5d364;
 }
 #important-txt{
-   
     font-family: monospace;
-    
+    color:black;
 }
 
 /* Less important */
-#less-important{
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
+#less-important-color{
     background-color: #8eed96;
 }
 #less-important-txt{
-    
     font-family: monospace;
-    
+    color:black;
 }
 /* Task Section */
 .task-p-class {
@@ -197,21 +247,12 @@ form label, p {
 
 .test {
     border: 2px solid black;
-    padding: 5%;
-    width: 30px;
-    height: 30px;
+    width: auto;
+    height: 50px;
 }
 #calender-table {
     border-collapse: collapse;
-    table-layout: auto;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    width: 10%;
-    
-=======
-    width: 40%;
->>>>>>> 03a3dfccaa02dbb0871a79420c8a539cdc1d6769
-=======
-    width: 30%;
->>>>>>> f634b388417659cec5be0248fe06dd0ea545985f
+    table-layout: fixed;
+    width: 100%;
+    height:100%;
 }
