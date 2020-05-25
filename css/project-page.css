@@ -204,6 +204,10 @@ form label, p {
 #calender-table {
     border-collapse: collapse;
     table-layout: auto;
+<<<<<<< HEAD
     width: 10%;
     
+=======
+    width: 40%;
+>>>>>>> 03a3dfccaa02dbb0871a79420c8a539cdc1d6769
 }
