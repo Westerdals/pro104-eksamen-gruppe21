@@ -6,6 +6,7 @@ var openModal = document.getElementById("open-modal-btn");
 var exitModal = document.getElementById("exit-modal");
 var modalNameinput = document.getElementById("modal-name-input");
 var modalDateinput = document.getElementById("modal-date-input");
+var modalDateEndInput = document.getElementById('modal-date-end-input');
 var openNoProModal = document.getElementById("no-project-modal");
 
 var createProjectBtn = document.getElementById("create-project-btn");
@@ -69,9 +70,10 @@ function createProject() {
    
      var name = modalNameinput.value;
      var date = modalDateinput.value;
+     var endDate = modalDateEndInput.value;
         
      var project = {
-         name, date
+         name, date,endDate
         };
 
 
@@ -119,7 +121,7 @@ function fetchProjects() {
 
     for (var i = 0; i < projects.length; i++) {
         var projectElement = document.createElement("div");
-        projectElement.innerHTML = `<p>${projects[i].name}</p><p>${projects[i].date}</p>`;
+        projectElement.innerHTML = `<p>${projects[i].name}</p><p>${projects[i].date}</p><p>${projects[i].endDate}</p>`;
         projectElement.classList.add(`div${i}`);
         projectElement.classList.add(`div-common`);
         projectContainer.appendChild(projectElement);

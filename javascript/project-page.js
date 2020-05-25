@@ -38,9 +38,63 @@ function renderSelectedProject(){
 
     document.getElementById('toptext').innerHTML = selectedProject.name;
 
+    console.log(selectedProject);
 
+    const duration = getDateDifference();
+    console.log(duration);
+    
 }
 
+function getDateDifference(){
+    const currentYear = new Date().getFullYear();
+    console.log(currentYear);
+    
+    var startDate = new Date(projectApp.selectedProject.date);
+    var endDate = new Date(projectApp.selectedProject.endDate);
+    console.log(endDate);
+    
+
+    var startMonth = startDate.getMonth();
+    var endMonth = endDate.getMonth();
+
+    var startDayNumber = startDate.getDate()
+    var endDayNumber = endDate.getDate();
+    console.log(startDayNumber);
+
+
+    if(startMonth === endMonth){
+        projectApp.selectedProject.duration = endDate.getDate() - startDate.getDate();  
+    }
+    if(endMonth > startMonth){
+        if(startMonth == 0 || startMonth == 2 || startMonth == 4 || startMonth == 6 || startMonth == 7 || startMonth == 9 || startMonth == 11){
+            daysInStartMonth = 31;
+
+            console.log(startDayNumber, endDayNumber);
+            var daysLeftInStartMonth = daysInStartMonth - startDayNumber;
+            var totalDays = daysLeftInStartMonth + endDayNumber;
+
+            projectApp.selectedProject.duration = totalDays;
+
+        } else if (startMonth != 1) {
+            daysInStartMonth = 30;
+
+            console.log(startDayNumber, endDayNumber);
+            var daysLeftInStartMonth = daysInStartMonth - startDayNumber;
+            var totalDays = daysLeftInStartMonth + endDayNumber;
+
+            projectApp.selectedProject.duration = totalDays;
+            //Checks if the current year is a leap year, and if the projects start month is February. If both is true the daysInstartMonth will have 29 days
+        } else if (((currentYear % 4 == 0) && (currentYear % 100 != 0)) || (currentYear % 400 == 0) && startMonth == 1){
+            daysInStartMonth = 29;
+            console.log(startDayNumber, endDayNumber);
+            var daysLeftInStartMonth = daysInStartMonth - startDayNumber;
+            var totalDays = daysLeftInStartMonth + endDayNumber;
+            projectApp.selectedProject.duration = totalDays;
+
+        }
+    }
+    return projectApp.selectedProject.duration;
+}
 
 
 function submitModal(e){
@@ -164,7 +218,9 @@ function renderAssignments(){
     var listOfUsers = projectApp.selectedProject.users || [];
 
     //Her må det komme en funksjon som henter antall dager prosjektet er, og lagre det antallet dager
-    var lengthInDays = 8;
+    var lengthInDays = getDateDifference();
+    console.log(lengthInDays);
+    
     //Her må det komme en funksjon som henter antall medlemmer det er i prosjektet
    
 
