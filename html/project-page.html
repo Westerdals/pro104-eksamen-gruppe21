@@ -24,34 +24,32 @@
             </div>
 
             <div id="list-flexbox">
-                <div id="to-do-list">
-                    <div id="to-do-list-tasks">
-                        <button class="add-todo-btn" onclick="showTodoModal()">Add Task</button>
-                    </div>
+                <div class="common-listbox-prop" id="to-do-list">
+                    <div class="common-list-prop" id="to-do-list-tasks"> </div>
+                    <button class="add-todo-btn" onclick="showTodoModal()">+ Legg til task</button>
                 </div>
-                <div id="project-members">
-                    <div id="project-members-memb">
-                        <button class="add-participant-btn" onclick="showParticipantModal()">Add Participant</button>
-                    </div>
+                <div class="common-listbox-prop" id="project-members">
+                    <div class="common-list-prop" id="project-members-memb"> </div>
+                    <button class="add-participant-btn" onclick="showParticipantModal()">+ Legg til medlem</button>
                 </div>
             </div>
 
          <!-- Color indicators with importance level -->
          <div id="importance-lvl">
-            <div id="very-important" class="level-of-important">
+            <div id="color-box">
+                <div class="importance-color" id = very-important-color></div>
+                <div class="importance-color" id =important-color></div>
+                <div class="importance-color" id = less-important-color></div>
+            </div>
+
+            <div id="color-txt-box">
                 <p id="very-important-txt">Veldig viktig</p>
-            </div>
-            <div id="important" class="level-of-important">
                 <p id="important-txt">Viktig</p>
-            </div>
-            <div id="less-important" class="level-of-important">
                 <p id="less-important-txt">Mindre viktig</p>
-            </div>
+            </div>        
         </div>
 
-
-
-        </div>
+    </div>
         
             <!-- Main content on the webpage -->
             
