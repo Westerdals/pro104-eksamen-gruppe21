@@ -141,12 +141,13 @@ function drag(ev){
 function drop(ev){
     ev.preventDefault()
     var data = ev.dataTransfer.getData("text/html");
+    console.log(data);
     var nodeCopy = document.getElementById(data).cloneNode(true);
     nodeCopy.id = "newId";
     ev.target.appendChild(nodeCopy);
     console.log("hei"); 
 }
-//Left her
+
 function saveTaskAssignment(){
     const assignedTasks = document.getElementsByClassName('container');
     var taskAssignement = JSON.parse(window.localStorage.getItem('allocation')) || [];
