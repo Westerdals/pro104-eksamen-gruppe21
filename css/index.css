@@ -233,6 +233,9 @@ body{
 
 /* For mobile format */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    *{
+        box-sizing: border-box;
+    }
     /* Makes projects shorter for mobile format */
     .div-common{
         height: 20%;
@@ -284,10 +287,7 @@ body{
     #notes-pic{
         width: 170%;
     }
-    
-    *{
-        box-sizing: border-box;
-    }
+    /* Hides text */
     #no-project-txt2{
         display: none;
     }
