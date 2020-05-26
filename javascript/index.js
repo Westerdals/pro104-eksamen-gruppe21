@@ -153,7 +153,7 @@ function prepareForRedirect(){
     for (let i = 0; i < projectForForwarding.length; i++) {
         projectForForwarding[i].addEventListener('click',() => {
             var specificProject = projectForForwarding[i];
-            var projectName = specificProject.getElementsByTagName('p')[0].innerHTML;
+            var projectName = specificProject.getElementsByTagName('h1')[0].innerHTML;
             var projectStartDate = specificProject.getElementsByTagName('p')[1].innerHTML;
             
             dataForForwarding = {projectName, projectStartDate};
