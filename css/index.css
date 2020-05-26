@@ -228,8 +228,6 @@ body{
         padding-left: 40px;
 
     }
-    #open-modal-btn:hover{
-    transform: scale(2.5);
 }
     .open-modal-btn-container{
         display: flex;
