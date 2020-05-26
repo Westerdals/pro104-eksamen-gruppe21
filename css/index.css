@@ -228,6 +228,10 @@ body{
         display: flex;
         justify-content: center;
     }
+    #modal-content{
+        width: 40%;
+    }
+    
 }
 
 
