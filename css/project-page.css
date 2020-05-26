@@ -474,6 +474,8 @@ tbody{
     #project-members button{
         font-size: 20px;
     }
+    
+    /* Makes modals stack like columns */
     #list-flexbox{
         display: flex;
         flex-direction: column;
@@ -482,5 +484,44 @@ tbody{
         height: 55%;
         width: 90%;
         margin: 2%;
+    }
+    
+    /* modal todo content */
+    
+    #modal-todo-content{
+        width: 90%;
+    }
+    #submit-task-btn{
+        height: 10%;
+        width: 20%;
+        font-size: 30px;
+        margin-top: 10%;
+    }
+    .radio-div{
+        height: 50px;
+        width: 50px;
+    }
+    #colors{
+        margin-top: 5%;
+    }
+    
+    #task-modal-input{
+        width: 40%;
+        font-size: 35px;
+    }
+    
+    /* Participent modal */
+    
+    #modal-participant-content{
+        width: 90%;
+    }
+    #submit-member-btn{
+        font-size: 40px;
+        margin-top: 5%;
+    }
+    input{
+        width: 40%;
+        height: 20%;
+        font-size: 35px;
     }
 }
