@@ -2,6 +2,7 @@
     margin: 0px;
     padding: 0px;
     border: 0px;
+    border: none;
 }
 
 body{
@@ -13,7 +14,19 @@ body{
 .task-container {
     flex: 1;
     height: 100%;
+    flex-direction: row;
+    
 }
+
+th {
+    border: 0.1px solid black;
+    border-spacing: 0px;
+}
+tbody {
+    /*border-collapse:collapse;*/
+    
+}
+
 /*Container for header,top text */
 #container {
     background-color:white;
@@ -26,7 +39,10 @@ body{
     align-items: center;
     justify-content: center;
 }
-
+tbody > tr {
+    height: inherit;
+    /*border-collapse: collapse;*/
+}
 /* Banner */
 #top-banner{
     background-color: grey;
@@ -194,7 +210,7 @@ form label, p {
     margin: 0px;
 }
 
-#submit-task-btn{
+#submit-btn{
     width: 50%;
     height: 15%;
     background-color: rosybrown;
@@ -338,10 +354,9 @@ form label, p {
 }
 
 #days-header th {
-    
     width: auto;
     height: 100%;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
 }
 
 *{
@@ -352,12 +367,12 @@ form label, p {
     width: inherit;
     height: inherit;
     flex: 1;
-    border-collapse: collapse;
+    /*border-collapse: collapse;*/
 }
 
 
 #calender-table {
-    border-collapse: collapse;
+    /*border-collapse: collapse;*/
     table-layout: fixed;
     width: 100%;
     height:100%;
@@ -367,16 +382,21 @@ form label, p {
 
 #calender-table > tbody:nth-child(n+2){
     flex:1;
-    border: 1px solid black;
+    
 
+}
+.calender-name-container{
+    display: flex;
+}
+.calender-name-container th {
+    flex:1;
 }
 
 .firstTBody{
     display: flex;
     background-color: red;
-    
     height: 20%;
-    border-collapse: collapse;
+    /*border-collapse: collapse;*/
 
 }
 
@@ -391,15 +411,9 @@ tbody{
     height: 100%;
     width: 100%;
     flex: 1;
-  
 }   
-.calender-name-container {
-    flex: 1;
-}
-.task-row{
-    display: flex;
-    
-}
+
+
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px){
     #to-do-list button{
