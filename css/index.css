@@ -216,6 +216,10 @@ body{
     .div-common{
         height: 20%;
     }
+    #main-container {
+        min-width: 100%;
+        width: 100%;
+    }
     
     /* make new project button flex and hover effect */
     #open-modal-btn{
