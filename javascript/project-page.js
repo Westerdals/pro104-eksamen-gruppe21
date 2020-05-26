@@ -99,7 +99,7 @@ function getDateDifference(){
 function submitModal(e){
     e.preventDefault();
     var currentProject = projectApp.selectedProject;
-    var projectList = projectApp.allProjects;
+    var projectList = projectApp.allProjects;1  
 
     const firstName = document.querySelector("[name='fname']").value;
     const lastName = document.querySelector("[name='lname']").value;
@@ -128,7 +128,7 @@ function submitModal(e){
 */
     
     console.log(currentProject);
-
+    e.target.reset();
     renderParticipants();
     closeParticipantModal();
 }
@@ -176,7 +176,7 @@ function submitTodoModal(event) {
             break;
         case 2:
             toDoList.innerHTML += `<div class="task-p-class" style="background-color:#FFB7B2;">${taskName}</div>`;
-            taskImportance = '#FFB7B2';
+            taskImportance = '#FFB7B2i8';
             break;
         default:
             toDoList.innerHTML += `<div class="task-p-class" style="background-color:#ffff00;">${taskName}</div>`;
@@ -196,6 +196,7 @@ function submitTodoModal(event) {
     
     //window.localStorage.setItem('listOfTasks', JSON.stringify(listOfTasks));
     closeTodoModal();
+    event.target.reset();
 
 }
 

@@ -68,6 +68,7 @@ function init() {
 
 function createProject() {
    
+   
      var name = modalNameinput.value;
      var date = modalDateinput.value;
      var endDate = modalDateEndInput.value;
@@ -106,10 +107,10 @@ function createProject() {
         }else{
             alert("Du må ha input");
         }
-    
    
-
-
+        modalNameinput.value = ""; 
+        modalDateinput.value = "";
+        modalDateEndInput.value = "";
 }
 
 
@@ -136,6 +137,7 @@ function fetchProjects() {
 
         projectElement.style.backgroundColor = color;
     }
+    prepareForRedirect();
 }
 function prepareForRedirect(){
     var dataForForwarding = {};
