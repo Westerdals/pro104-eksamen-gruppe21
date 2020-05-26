@@ -11,14 +11,13 @@ body{
     border: 0px;
     height: 100%;
     width: 100%;
-    background-color:pink;
+    background-color:grey;
     
    
 }
 
 /* Main container for main container*/
 #main-container{
-    background-color:white;
     height: 100%;
     width: 100%;
     flex-direction: column;
@@ -26,57 +25,62 @@ body{
     justify-content: center;
 }
 
-/* Banner */
-#top-banner{
-    background-color: grey;
-    padding-top: 4%;
+#main-container img{
+    position: absolute;
+    height: 100%;
     width: 100%;
-   
+    z-index: -1;
+    opacity: 0.4;
 }
+
 /* Header */
 #toptext{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 11%;
     font-size: 70px;
     font-family: 'Montserrat', sans-serif;
+    font-weight: 1000;
     padding-top: 60px;
 }
 
 /* Container for the projects */
 #projects-container{
+    padding-top: 20px;
     display: flex;
     width: 100%;
     height: 60%;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
-    background-color:white;
+    margin-bottom: 50px;
     
 }
 
+.open-modal-btn-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
 /* Button to open the "new project modal" */
 #open-modal-btn{
-    font-size: 30px;
+    text-align: center;
+    font-size: 1.8rem;
     font-family: 'Montserrat', sans-serif;
     cursor: pointer;
     margin-left: 9%;
-    margin-top: 1%;
-    width: 50%;
-    background-color: white;
+    margin-right: 2%;
+    width: 16%;
+
 }
 
 #open-modal-btn:after{
     content: '';
-    position: absolute;
-    left: 9%;
-    display: inline-block;
-    height: 1em;
-    width: 14%;
+    display: flex;
+    width: 100%;
+    margin-top: 2%;
     border-bottom: 1px solid;
-    margin-top: 10px;
     opacity: 0;
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;
@@ -114,7 +118,7 @@ body{
 }
 
 .div-common h1{
-    font-size: 40px;
+    font-size: x40px;
     padding-top: 4%;
     padding-bottom: 10%;
     font-family: 'Montserrat', sans-serif;
@@ -227,16 +231,12 @@ body{
 }
 
 #no-proj-txt2-div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 4%;
-    margin-right: 18%;
-    animation: move-txt 0.7s infinite alternate-reverse;
+    animation: move-txt 1s infinite alternate-reverse;
+    display: none;
 }
 
 #no-project-txt2{
-    font-size: 30px;
+    font-size: 1.8rem;
     font-family: 'Montserrat', sans-serif;
     color: teal;
 }
