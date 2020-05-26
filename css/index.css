@@ -68,9 +68,27 @@ body{
     background-color: white;
 }
 
-#open-modal-btn:hover{
-    transform: scaleX(1.1);
+#open-modal-btn:after{
+    content: '';
+    position: absolute;
+    left: 9%;
+    display: inline-block;
+    height: 1em;
+    width: 14%;
+    border-bottom: 1px solid;
+    margin-top: 10px;
+    opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale(0,1);
+	transform: scale(0,1);
 }
+#open-modal-btn:hover:after {
+    opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
 /* Contains the common css for projects */
 .div-common{
     width: 25%;
@@ -114,6 +132,7 @@ body{
     align-items: center;
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
+    border-radius: 10px;
 }
 /* CSS for text, input boxes and button on modal */
 #modal-content p{
@@ -211,6 +230,8 @@ body{
     from {margin-left: 0%;}
     to {margin-left: 2%;}
 }
+
+/* For mobile format */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     /* Makes projects shorter for mobile format */
     .div-common{
@@ -223,15 +244,13 @@ body{
     
     /* make new project button flex and hover effect */
     #open-modal-btn{
-        transform: scale(2);
         width: inherit;
-        padding-left: 40px;
-
+        padding-right: 30px;
+        font-size: 80px;
     }
-}
     .open-modal-btn-container{
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
     }
     #modal-content{
         width: 40%;
@@ -239,9 +258,16 @@ body{
     #notes-pic{
         width: 170%;
     }
+<<<<<<< HEAD
     
     *{
         box-sizing: border-box;
     }
+=======
+    #no-project-txt2{
+        display: none;
+    }
+}
+>>>>>>> 533fa8f33c80ca5f465251f8593998af650f74b9
 
 
