@@ -225,7 +225,7 @@ body{
     #open-modal-btn{
         width: inherit;
         padding-right: 30px;
-
+        font-size: 80px;
     }
     .open-modal-btn-container{
         display: flex;
