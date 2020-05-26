@@ -223,15 +223,13 @@ body{
     
     /* make new project button flex and hover effect */
     #open-modal-btn{
-        transform: scale(2);
         width: inherit;
-        padding-left: 40px;
+        padding-right: 30px;
 
     }
-}
     .open-modal-btn-container{
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
     }
     #modal-content{
         width: 40%;
@@ -239,7 +237,9 @@ body{
     #notes-pic{
         width: 170%;
     }
-    
+    #no-project-txt2{
+        display: none;
+    }
 }
 
 
