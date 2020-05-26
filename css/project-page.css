@@ -528,4 +528,10 @@ tbody{
         height: 20%;
         font-size: 35px;
     }
+
+    form{
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
 }
