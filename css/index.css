@@ -132,6 +132,7 @@ body{
     align-items: center;
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
+    border-radius: 10px;
 }
 /* CSS for text, input boxes and button on modal */
 #modal-content p{
