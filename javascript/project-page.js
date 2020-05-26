@@ -136,11 +136,13 @@ function submitModal(e){
 
 function renderParticipants(){
     participants = projectApp.selectedProject.users || [];
+
     const memberList = document.getElementById("project-members-memb");
+    memberList.innerHTML = "";
     //Printing all names to the screen for each participant in localStorage using the forEach methord with an arrow function
     for (var i = 0; i < participants.length;i++){
         memberList.innerHTML += `
-            <div><p>${participants[i].firstName} ${participants[i].lastName} ${participants[i].email}</p></div>
+            <div><p>${participants[i].firstName} ${participants[i].lastName}</p></div>
         `;
     }
 }
@@ -177,7 +179,7 @@ function submitTodoModal(event) {
             break;
         case 2:
             toDoList.innerHTML += `<div class="task-p-class" style="background-color:#FFB7B2;">${taskName}</div>`;
-            taskImportance = '#FFB7B2i8';
+            taskImportance = '#FFB7B2';
             break;
         default:
             toDoList.innerHTML += `<div class="task-p-class" style="background-color:#ffff00;">${taskName}</div>`;
@@ -227,7 +229,7 @@ function renderAssignments(){
    firstTBody.classList.add("firstTBody");
 
     daysHeader.innerHTML = `
-        <th id="dateDisplay" class="test">
+        <th id="dateDisplay" class="name-column">
 
         </th>
     `;
@@ -235,19 +237,26 @@ function renderAssignments(){
     console.log(daysHeader);
 
     var dateDisplay = document.getElementById('dateDisplay');
-    console.log(dateDisplay);
-
-    for (var i = 0; i < lengthInDays; i++){
-        daysHeader.innerHTML += `
-            <th class="test">${i}</th>
-        `;
+    const participants = projectApp.selectedProject.users || 0;
+    console.log(participants);
+    
+    if (participants == 0){
+        daysHeader.innerHTML = `<h2 style="margin:auto;font-size:4rem;">Legg til brukere for å begynne!</<h2>`;
+        console.log("HEi");
+        
+    } else {
+        for (var i = 0; i < lengthInDays; i++){
+            daysHeader.innerHTML += `
+                <th class="test">${i}</th>
+            `;
+        }
     }
 
     console.log(listOfUsers);
     for (var i = 0; i < listOfUsers.length; i++){
         assignmentField.innerHTML += `
             <tr id="participantColumn${i}" class="task-row">
-                <th id="participantName${i}" class="test" >${listOfUsers[i].firstName}</th>
+                <th id="participantName${i}" class="test name-column" ><a href="mailto:${participants[i].email}">${listOfUsers[i].firstName}</th>
             </tr>
         `;
        
@@ -306,7 +315,6 @@ function drop(ev){
 }
 
 function saveTaskAssignment(){
-    const containers = document.getElementsByClassName('container');
     var currentProject = projectApp.selectedProject;
     var projectList = projectApp.allProjects;
     //projectApp.selectedProject.taskAllocation = [];
