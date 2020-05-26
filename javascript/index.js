@@ -137,6 +137,7 @@ function fetchProjects() {
 
         projectElement.style.backgroundColor = color;
     }
+    prepareForRedirect();
 }
 function prepareForRedirect(){
     var dataForForwarding = {};
