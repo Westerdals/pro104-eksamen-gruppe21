@@ -122,7 +122,11 @@ function fetchProjects() {
 
     for (var i = 0; i < projects.length; i++) {
         var projectElement = document.createElement("div");
-        projectElement.innerHTML = `<p>${projects[i].name}</p><p>${projects[i].date}</p><p>${projects[i].endDate}</p>`;
+        projectElement.innerHTML = 
+        `<h1>${projects[i].name}</h1>
+        <p>Start dato: ${projects[i].date}</p>
+        <p>Slutt dato: ${projects[i].endDate}</p>`;
+
         projectElement.classList.add(`div${i}`);
         projectElement.classList.add(`div-common`);
         projectContainer.appendChild(projectElement);
