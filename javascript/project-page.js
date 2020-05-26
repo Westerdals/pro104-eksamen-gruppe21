@@ -127,6 +127,7 @@ function submitModal(e){
 
 */
     
+    
     console.log(currentProject);
     e.target.reset();
     renderParticipants();
@@ -245,14 +246,24 @@ function renderAssignments(){
     console.log(listOfUsers);
     for (var i = 0; i < listOfUsers.length; i++){
         assignmentField.innerHTML += `
-            <tr id="participantColumn${i}" class ="task-row">
+            <tr id="participantColumn${i}" class="task-row">
                 <th id="participantName${i}" class="test" >${listOfUsers[i].firstName}</th>
             </tr>
         `;
+       
         for (var j = 0; j < lengthInDays;j++){
             var participantColumn = document.getElementById(`participantColumn${i}`);
             participantColumn.classList.add("calender-name-container");
             if (projectApp.selectedProject.taskAllocation) {
+                
+                if (projectApp.selectedProject.taskAllocation.length < projectApp.selectedProject.users.length){
+                    var oldAssignments = projectApp.selectedProject.taskAllocation;
+                    oldAssignments.push([])
+                    for ( var k = 0; k < projectApp.selectedProject.duration;k++){
+                        oldAssignments[oldAssignments.length-1].push([]);
+                    }
+                    projectApp.selectedProject.taskAllocation = oldAssignments;
+                }
                 participantColumn.innerHTML += `
                 <th class="task-container container${i}${j}" ondrop="drop(event)" ondragover="allowDrop(event)">${projectApp.selectedProject.taskAllocation[i][j]}</th>
             `;
@@ -272,9 +283,10 @@ function renderAssignments(){
             //<th class="test container container${i}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
         //</tr>
    // `
+        }
+
     }
 
-}
 
 function allowDrop(ev){
     ev.preventDefault();
