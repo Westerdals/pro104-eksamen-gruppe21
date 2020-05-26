@@ -137,7 +137,6 @@ function renderParticipants(){
     participants = projectApp.selectedProject.users || [];
     const memberList = document.getElementById("project-members-memb");
     //Printing all names to the screen for each participant in localStorage using the forEach methord with an arrow function
-    memberList.innerHTML = `<button class="add-participant-btn" onclick="showParticipantModal()">Add Participant</button>`;
     for (var i = 0; i < participants.length;i++){
         memberList.innerHTML += `
             <div><p>${participants[i].firstName} ${participants[i].lastName} ${participants[i].email}</p></div>
@@ -168,16 +167,16 @@ function submitTodoModal(event) {
 
     switch(taskImportance){
         case 0:
-            toDoList.innerHTML += `<div class="task-p-class" style="background-color:#00ff00;">${taskName}</div>`;
-            taskImportance = '#00ff00';
+            toDoList.innerHTML += `<div class="task-p-class" style="background-color:#E2F0CB;">${taskName}</div>`;
+            taskImportance = '#E2F0CB';
             break;
         case 1:
-            toDoList.innerHTML += `<div class="task-p-class" style="background-color:#ffff00;">${taskName}</div>`;
-            taskImportance = '#ffff00';
+            toDoList.innerHTML += `<div class="task-p-class" style="background-color:#fffcbb;">${taskName}</div>`;
+            taskImportance = '#fffcbb';
             break;
         case 2:
-            toDoList.innerHTML += `<div class="task-p-class" style="background-color:#ff0000;">${taskName}</div>`;
-            taskImportance = '#ff0000';
+            toDoList.innerHTML += `<div class="task-p-class" style="background-color:#FFB7B2;">${taskName}</div>`;
+            taskImportance = '#FFB7B2';
             break;
         default:
             toDoList.innerHTML += `<div class="task-p-class" style="background-color:#ffff00;">${taskName}</div>`;

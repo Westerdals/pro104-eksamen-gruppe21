@@ -59,7 +59,7 @@
 <!---->
                 <div id="addTodoModal">
                     <div class="modal-content-design" id="modal-todo-content">
-                        <p id="exit-todo-modal">X</p>
+                        <p onclick="closeTodoModal()" id="exit-todo-modal">X</p>
 
                         <form onsubmit="submitTodoModal(event)">
                             <label for="task">Task</label><br>
@@ -77,7 +77,7 @@
 
                 <div id="add-participant-modal">
                     <div class="modal-content-design" id="modal-participant-content">
-                        <p id="exit-modal">X</p>
+                        <p onclick="closeParticipantModal()" id="exit-modal">X</p>
 
                         <form onsubmit="submitModal(event)">
                             <label for="fname">First name:</label><br>

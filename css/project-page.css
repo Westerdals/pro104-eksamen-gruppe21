@@ -127,7 +127,7 @@ body{
 
 /* Modal Section */
 
-}
+
 form label, p {
     color: white;
 }
@@ -160,7 +160,7 @@ form label, p {
 .modal-content-design{
     background-color: white;
     width: 20%;
-    height: 35%;
+    height: 40%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -193,7 +193,7 @@ form label, p {
     width: 50%;
     height: 15%;
     background-color: rosybrown;
-    margin-top: 30px;
+    margin-top: 40px;
     cursor: pointer;
 }
 
@@ -206,21 +206,20 @@ form label, p {
 
 #task-modal-input{
     border: 1px solid black;
-    height: 25px;
+    height: 30px;
     cursor: text;
+    margin-bottom: 10px;
 }
 
 #modal-participant-content input{
     border: 1px solid black;
-    padding-bottom: 3px;
-    padding-top: 3px;
+   height: 22px;
     cursor: text;
 }
 
 #modal-participant-content label{
     color: black;
-    height: 20px;
-    font-size: 10px;
+    font-size: 15px;
     margin: 0px; 
 }
 
@@ -229,13 +228,13 @@ form label, p {
 
 /* Color indicators and importance level */
 .less-important-radio {
-    background-color: green;
+    background-color: #E2F0CB;
 }
 .important-radio {
-    background-color: yellow;
+    background-color: #fffcbb;
 }
 .very-important-radio {
-    background-color: red;
+    background-color:#FFB7B2;
 }
 .radio-div {
     width: 30px;
@@ -300,7 +299,7 @@ form label, p {
 }
 /* Very important */
 #very-important-color{
-    background-color: #f51e1e;
+    background-color: #FFB7B2;
 }
 #very-important-txt{
     font-family: monospace;
@@ -310,7 +309,7 @@ form label, p {
 
 /* Important */
 #important-color{
-    background-color: #f5d364;
+    background-color: #fffcbb;
 }
 #important-txt{
     font-family: monospace;
@@ -319,7 +318,7 @@ form label, p {
 
 /* Less important */
 #less-important-color{
-    background-color: #8eed96;
+    background-color: #E2F0CB;
 }
 #less-important-txt{
     font-family: monospace;
