@@ -250,9 +250,16 @@ function renderAssignments(){
         `;
         for (var j = 0; j < lengthInDays;j++){
             var participantColumn = document.getElementById(`participantColumn${i}`);
-            participantColumn.innerHTML += `
+            if (projectApp.selectedProject.taskAllocation) {
+                participantColumn.innerHTML += `
+                <th class="test container container${i}${j}" ondrop="drop(event)" ondragover="allowDrop(event)">${projectApp.selectedProject.taskAllocation[i][j]}</th>
+            `;
+            } else {
+                participantColumn.innerHTML += `
                 <th class="test container container${i}${j}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
             `;
+            }
+            
         }
 
 
@@ -281,14 +288,15 @@ function drop(ev){
     var nodeCopy = document.getElementById(data).cloneNode(true);
     nodeCopy.id = "newId";
     ev.target.appendChild(nodeCopy);
-    console.log("hei"); 
+    saveTaskAssignment();
 }
 
 function saveTaskAssignment(){
     const containers = document.getElementsByClassName('container');
-    var taskAssignement = JSON.parse(window.localStorage.getItem('allocation')) || [];
-    projectApp.selectedProject.taskAllocation = [];
+    var currentProject = projectApp.selectedProject;
     var projectList = projectApp.allProjects;
+    //projectApp.selectedProject.taskAllocation = [];
+    
     var multiArray = [];
     
 
@@ -297,24 +305,18 @@ function saveTaskAssignment(){
         var participantColumn = document.getElementById(`participantColumn${i}`)
         for (var j = 1; j < projectApp.selectedProject.duration + 1; j++){
             dayColumn = participantColumn.getElementsByTagName("th")[j];
-            console.log(dayColumn);
-            
-            
-
-            
-
-            
+            multiArray[i].push([dayColumn.innerHTML]);          
         }
         
         //console.log(containers[i]);
         //projectList[projectApp.selectedProject.indexLocation].taskAllocation.push([containers[i].innerHTML]);
     }
+    window.localStorage.setItem('arrayTest', JSON.stringify(multiArray));
     console.log(multiArray);
+
+    projectList[currentProject.indexLocation].taskAllocation = multiArray;
     
     window.localStorage.setItem('projects', JSON.stringify(projectList));
-
-
-
 
     /*for (var i = 0; i < assignedTasks.length; i++){
         console.log(assignedTasks[i].getElementsByTagName('p')[0].innerHTML);
