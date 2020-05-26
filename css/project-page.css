@@ -14,11 +14,15 @@ body{
     width: 100%;
     height: 100%;
     background-color: #7ec586;
+
 }
 .task-container {
     flex: 1;
     height: 100%;
     flex-direction: row;
+}
+.task-row {
+    
 }
 
 th {
@@ -167,9 +171,7 @@ p{
 }
 th {
     flex-shrink: 10;
-}
-tr {
-    overflow-x: scroll;
+    min-width: 100px;
 }
 #project-members-memb > div > p {
     color: black;
@@ -425,7 +427,10 @@ th .task-p-class {
     display: flex;
     flex-direction: column;
     border: 1px solid;
+    
+    overflow-x: scroll;
 }
+
 
 #calender-table > tbody:nth-child(n+2){
     flex:1;
@@ -439,6 +444,7 @@ th .task-p-class {
 }
 .calender-name-container th {
     flex:1;
+    
 }
 
 .firstTBody{
@@ -450,7 +456,12 @@ th .task-p-class {
 .name-column {
     width: 100px;
     background-color: red;
+    position: -webkit-sticky;
     position: sticky;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    
 }
 .calender-name-container > .name-column {
     flex: none;
