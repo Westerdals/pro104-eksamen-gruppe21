@@ -42,7 +42,6 @@ body{
     height: 11%;
     font-size: 70px;
     font-family: 'Montserrat', sans-serif;
-    background-color:white;
     padding-top: 60px;
 }
 
@@ -54,7 +53,7 @@ body{
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
-    background-color: white;
+    background-color:white;
     
 }
 
@@ -65,7 +64,8 @@ body{
     cursor: pointer;
     margin-left: 9%;
     margin-top: 1%;
-    width: 15%
+    width: 50%;
+    background-color: white;
 }
 
 #open-modal-btn:hover{
