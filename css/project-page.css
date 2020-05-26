@@ -98,6 +98,10 @@ tbody > tr {
     margin-bottom: 30px;
 
 }
+p{
+    
+    word-wrap: break-word;
+}
 
 .common-listbox-prop{
     display: flex;
@@ -444,7 +448,7 @@ th .task-p-class {
     /*border-collapse: collapse;*/
 }
 .name-column {
-    width: 200px;
+    width: 100px;
     background-color: red;
     position: sticky;
 }
