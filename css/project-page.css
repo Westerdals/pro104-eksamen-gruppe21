@@ -4,6 +4,10 @@
     border: 0px;
     border: none;
 }
+a {
+    text-decoration: none;
+    color: black;
+}
 
 body{
     position: absolute;
@@ -15,21 +19,25 @@ body{
     flex: 1;
     height: 100%;
     flex-direction: row;
-    
 }
 
 th {
     border: 0.1px solid black;
     border-spacing: 0px;
+    background-color: white;
 }
-tbody {
-    /*border-collapse:collapse;*/
-    
+#newId {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-self: center;
+    margin-bottom: 1px;
+    border: 1px solid black;
 }
 
 /*Container for header,top text */
 #container {
-    background-color:white;
+    background-color:#dedede;
     top: 0;
     bottom: 0;
     height: 100%;
@@ -96,24 +104,36 @@ tbody > tr {
     height: 100%;
     width: 47%;
     overflow: scroll;
-    justify-content: space-between;  
+    justify-content: space-around;
+}
+.common-list-prop > .task-p-class {
+    flex-shrink: 0;
 }
 
 .common-list-prop{
     display: flex;
-    height: 90%;
+    height: 100%;
     width: 80%;
-    flex-direction: column;
+    
     overflow: scroll;
     font-family: 'Montserrat', sans-serif;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    
 }
 
 #to-do-list{
     background-color:#FFB7B2;
 }
 
-#to-do-list-tasks{
-    background-color: #FFB7B2;
+#to-do-list-tasks > .task-p-class{
+    display: inline;
+    width: 90%;
+    height: 20%;
+    margin-top: 10px;
+    margin-left: 10px;
+    
 }
 
 #to-do-list button{
@@ -135,6 +155,20 @@ tbody > tr {
 
 #project-members-memb{
     background-color: #E2F0CB;
+
+}
+#project-members-memb > div{
+    padding: 10px;
+    
+}
+th {
+    flex-shrink: 10;
+}
+tr {
+    overflow-x: scroll;
+}
+#project-members-memb > div > p {
+    color: black;
 }
 #project-members button{
     width: 20%;
@@ -347,20 +381,28 @@ form label, p {
 }
 /* Task Section */
 .task-p-class {
-    width: 20px;
-    height: 20px;
-    padding: 10px;
-    display: inline-block;
+  
+    width: 30%;
+    height: 100%;
+    border: 1px solid grey;
+    
+    text-align: center;
+    border-radius: 25px;
+}
+th .task-p-class {
+    border-radius: 0px;
+    margin: 0;
 }
 
 #days-header th {
-    width: auto;
+    /*width: auto;*/
     height: 100%;
     /*border: 1px solid black;*/
 }
 
 *{
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .test{
@@ -382,8 +424,10 @@ form label, p {
 
 #calender-table > tbody:nth-child(n+2){
     flex:1;
-    
-
+}
+#calender-table > #calender-table:nth-child(1) {
+    height: 160px;
+    background-color: red;
 }
 .calender-name-container{
     display: flex;
@@ -397,9 +441,15 @@ form label, p {
     background-color: red;
     height: 20%;
     /*border-collapse: collapse;*/
-
 }
-
+.name-column {
+    width: 200px;
+    background-color: red;
+    position: sticky;
+}
+.calender-name-container > .name-column {
+    flex: none;
+}
 #days-header{
     display: flex;
     height: 100%;
@@ -410,7 +460,7 @@ form label, p {
 tbody{
     height: 100%;
     width: 100%;
-    flex: 1;
+    /*flex: 1;*/
 }   
 
 
