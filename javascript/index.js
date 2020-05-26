@@ -124,8 +124,8 @@ function fetchProjects() {
         var projectElement = document.createElement("div");
         projectElement.innerHTML = 
         `<h1>${projects[i].name}</h1>
-        <p>Start dato: ${projects[i].date}</p>
-        <p>Slutt dato: ${projects[i].endDate}</p>`;
+        <p>Start: ${projects[i].date}</p>
+        <p>Slutt: ${projects[i].endDate}</p>`;
 
         projectElement.classList.add(`div${i}`);
         projectElement.classList.add(`div-common`);
