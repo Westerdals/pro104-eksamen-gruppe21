@@ -10,7 +10,10 @@ body{
     height: 100%;
     background-color: #7ec586;
 }
-
+.task-container {
+    flex: 1;
+    height: 100%;
+}
 /*Container for header,top text */
 #container {
     background-color:white;
@@ -371,7 +374,7 @@ form label, p {
 .firstTBody{
     display: flex;
     background-color: red;
-    z-index: 10;
+    
     height: 20%;
     border-collapse: collapse;
 
@@ -387,11 +390,15 @@ form label, p {
 tbody{
     height: 100%;
     width: 100%;
+    flex: 1;
   
 }   
-
+.calender-name-container {
+    flex: 1;
+}
 .task-row{
-    flex:1;
+    display: flex;
+    
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px){

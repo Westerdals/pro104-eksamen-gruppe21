@@ -226,7 +226,7 @@ function renderAssignments(){
    firstTBody.classList.add("firstTBody");
 
     daysHeader.innerHTML = `
-        <th id="dateDisplay">
+        <th id="dateDisplay" class="test">
 
         </th>
     `;
@@ -245,19 +245,20 @@ function renderAssignments(){
     console.log(listOfUsers);
     for (var i = 0; i < listOfUsers.length; i++){
         assignmentField.innerHTML += `
-            <tr id="participantColumn${i}" class = "task-row">
-                <th id="participantName${i}" >${listOfUsers[i].firstName}</th>
+            <tr id="participantColumn${i}" class ="task-row">
+                <th id="participantName${i}" class="test" >${listOfUsers[i].firstName}</th>
             </tr>
         `;
         for (var j = 0; j < lengthInDays;j++){
             var participantColumn = document.getElementById(`participantColumn${i}`);
+            participantColumn.classList.add("calender-name-container");
             if (projectApp.selectedProject.taskAllocation) {
                 participantColumn.innerHTML += `
-                <th class = "container container${i}${j}" ondrop="drop(event)" ondragover="allowDrop(event)">${projectApp.selectedProject.taskAllocation[i][j]}</th>
+                <th class="task-container container${i}${j}" ondrop="drop(event)" ondragover="allowDrop(event)">${projectApp.selectedProject.taskAllocation[i][j]}</th>
             `;
             } else {
                 participantColumn.innerHTML += `
-                <th class="container container${i}${j}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
+                <th class="task-container container${i}${j}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
             `;
             }
             
