@@ -242,7 +242,7 @@ body{
         width: 100%;
     }
     
-    /* make new project button flex and hover effect */
+    /* Modal input and button re-sizing */
     #open-modal-btn{
         width: inherit;
         padding-right: 30px;
@@ -253,21 +253,44 @@ body{
         justify-content: center;
     }
     #modal-content{
-        width: 40%;
+        width: 80%;
+        height: 80%;
     }
+    label{
+        font-size: 40px;
+    }
+    #create-project-btn{
+        font-size: 30px;
+    }
+    h2{
+        font-size: 45px;
+    }
+    #modal-name-input{
+        height: 4%;
+        width: 50%;
+        font-size: 30px;
+    }
+    #modal-date-input{
+        height: 4%;
+        width: 50%;
+        font-size: 30px;
+    }
+    #modal-date-end-input{
+        height: 4%;
+        width: 50%;
+        font-size: 30px;
+    }
+    /* Picture on start page */
     #notes-pic{
         width: 170%;
     }
-<<<<<<< HEAD
     
     *{
         box-sizing: border-box;
     }
-=======
     #no-project-txt2{
         display: none;
     }
 }
->>>>>>> 533fa8f33c80ca5f465251f8593998af650f74b9
 
 
