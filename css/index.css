@@ -240,6 +240,8 @@ body{
         width: 170%;
     }
     
-}
+    *{
+        box-sizing: border-box;
+    }
 
 

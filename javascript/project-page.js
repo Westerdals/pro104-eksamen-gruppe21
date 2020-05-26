@@ -222,7 +222,8 @@ function renderAssignments(){
     console.log(lengthInDays);
     
     //Her må det komme en funksjon som henter antall medlemmer det er i prosjektet
-   
+   var firstTBody = document.getElementById("calender-table").getElementsByTagName("tbody")[0];
+   firstTBody.classList.add("firstTBody");
 
     daysHeader.innerHTML = `
         <th id="dateDisplay">
@@ -244,19 +245,19 @@ function renderAssignments(){
     console.log(listOfUsers);
     for (var i = 0; i < listOfUsers.length; i++){
         assignmentField.innerHTML += `
-            <tr id="participantColumn${i}">
-                <th id="participantName${i}" class="test">${listOfUsers[i].firstName}</th>
+            <tr id="participantColumn${i}" class = "task-row">
+                <th id="participantName${i}" >${listOfUsers[i].firstName}</th>
             </tr>
         `;
         for (var j = 0; j < lengthInDays;j++){
             var participantColumn = document.getElementById(`participantColumn${i}`);
             if (projectApp.selectedProject.taskAllocation) {
                 participantColumn.innerHTML += `
-                <th class="test container container${i}${j}" ondrop="drop(event)" ondragover="allowDrop(event)">${projectApp.selectedProject.taskAllocation[i][j]}</th>
+                <th class = "container container${i}${j}" ondrop="drop(event)" ondragover="allowDrop(event)">${projectApp.selectedProject.taskAllocation[i][j]}</th>
             `;
             } else {
                 participantColumn.innerHTML += `
-                <th class="test container container${i}${j}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
+                <th class="container container${i}${j}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
             `;
             }
             
