@@ -224,13 +224,16 @@ body{
     /* make new project button flex and hover effect */
     #open-modal-btn{
         transform: scale(2);
+        width: inherit;
+        padding-left: 40px;
+
     }
     #open-modal-btn:hover{
     transform: scale(2.5);
 }
     .open-modal-btn-container{
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
     }
     #modal-content{
         width: 40%;
