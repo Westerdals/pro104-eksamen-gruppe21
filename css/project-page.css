@@ -137,13 +137,24 @@ p{
 }
 
 #to-do-list-tasks > .task-p-class{
-    display: inline;
+    display: flex;
     width: 90%;
     height: 20%;
     margin-top: 10px;
     margin-left: 10px;
-    
+    align-items: center;
+    justify-content: space-between; 
 }
+
+#to-do-list-tasks > .task-p-class >p{
+color: black;
+margin-left: 10%;
+}
+
+#to-do-list-tasks > .task-p-class >h2{
+    color: black;
+    margin-right:10%;
+    }
 
 #to-do-list button{
     width: 20%;
@@ -153,7 +164,6 @@ p{
     font-family: 'Montserrat', sans-serif;
     cursor: pointer;
     text-align: end;
-
 }
 
 
