@@ -61,6 +61,10 @@ function getDateDifference(){
     var startDayNumber = startDate.getDate()
     var endDayNumber = endDate.getDate();
 
+    var projectList= projectApp.allProjects;
+    var currentProject = projectApp.selectedProject;
+    
+
     //Does necessary calculations to determine how to calculate days between start and end date
     if(startMonth === endMonth){
         projectApp.selectedProject.duration = endDate.getDate() - startDate.getDate();  
@@ -92,7 +96,7 @@ function getDateDifference(){
 
         //Checks if the current year is a leap year, and if the projects start month is February. If both is true it will give February 29 days
         } else if (((currentYear % 4 == 0) && (currentYear % 100 != 0)) || (currentYear % 400 == 0) && (startMonth == 1)){
-            daysInStartMonth = 29;
+            var  daysInStartMonth = 29;
             
             var daysLeftInStartMonth = daysInStartMonth - startDayNumber;
             var totalDays = daysLeftInStartMonth + endDayNumber;
@@ -101,6 +105,8 @@ function getDateDifference(){
             projectApp.selectedProject.daysInStartMonth = daysInStartMonth;
         }
     }
+    projectList[currentProject.indexLocation] = currentProject;
+    window.localStorage.setItem('projects', JSON.stringify(projectList));
     return projectApp.selectedProject.duration;
 }
 
