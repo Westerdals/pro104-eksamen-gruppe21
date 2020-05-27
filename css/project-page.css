@@ -503,6 +503,7 @@ tbody{
         height: 55%;
         width: 90%;
         margin: 2%;
+        font-size: 30px;
     }
     
     /* modal todo content */
@@ -540,13 +541,22 @@ tbody{
     }
     input{
         width: 40%;
-        height: 20%;
-        font-size: 35px;
+        height: 7%;
+    }
+    #task-modal-input{
+        height: 7%;
+        width: 40%;
     }
 
     form{
         height: 100%;
         display: flex;
         justify-content: space-around;
+    }
+    a{
+        font-size: 30px;
+    }
+    th{
+        font-size: 30px;
     }
 }
