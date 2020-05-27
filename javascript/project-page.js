@@ -11,7 +11,7 @@ function init(){
     renderParticipants();
 
     // If project has 9 or less days it hides the scroller
-    if(projectApp.selectedProject.duration <= 11) {
+    if(projectApp.selectedProject.duration <= 10) {
         document.getElementById('calender-table').style = "-ms-overflow-style:none";
     }
 }
@@ -46,6 +46,7 @@ function renderSelectedProject(){
     document.getElementById('toptext').innerHTML = selectedProject.name;
 
     getDateDifference();
+    setDateDays();
 }
 
 function getDateDifference(){
@@ -73,6 +74,7 @@ function getDateDifference(){
             var totalDays = daysLeftInStartMonth + endDayNumber;
 
             projectApp.selectedProject.duration = totalDays;
+            projectApp.selectedProject.daysInStartMonth = daysInStartMonth;
         } else if (startMonth != 1) {
             var daysInStartMonth = 30;
 
@@ -80,6 +82,7 @@ function getDateDifference(){
             var totalDays = daysLeftInStartMonth + endDayNumber;
 
             projectApp.selectedProject.duration = totalDays;
+            projectApp.selectedProject.daysInStartMonth = daysInStartMonth;
 
         //Checks if the current year is a leap year, and if the projects start month is February. If both is true it will give February 29 days
         } else if (((currentYear % 4 == 0) && (currentYear % 100 != 0)) || (currentYear % 400 == 0) && (startMonth == 1)){
@@ -89,6 +92,7 @@ function getDateDifference(){
             var totalDays = daysLeftInStartMonth + endDayNumber;
 
             projectApp.selectedProject.duration = totalDays;
+            projectApp.selectedProject.daysInStartMonth = daysInStartMonth;
         }
     }
     return projectApp.selectedProject.duration;
@@ -230,7 +234,7 @@ function renderAssignments(){
     } else {
         for (var i = 0; i < lengthInDays; i++){
             daysHeader.innerHTML += `
-                <th class="test">${i}</th>
+                <th class="task-th date-th">${i}</th>
             `;
         }
     }
@@ -238,7 +242,7 @@ function renderAssignments(){
     for (var i = 0; i < listOfUsers.length; i++){
         assignmentField.innerHTML += `
             <tr id="participantColumn${i}" class="task-row">
-                <th id="participantName${i}" class="test name-column" ><a href="mailto:${participants[i].email}">${listOfUsers[i].firstName}</th>
+                <th id="participantName${i}" class="task-th name-column" ><a href="mailto:${participants[i].email}">${listOfUsers[i].firstName}</th>
             </tr>
         `;
        
@@ -274,8 +278,19 @@ function renderAssignments(){
             }            
         }
     }
+    setDateDays();
 }
-
+function setDateDays(){
+    var dateTh = document.getElementsByClassName("date-th");
+    for (var i = 0; i < dateTh.length;i++ ){
+        var dateObject = new Date(projectApp.selectedProject.date);
+        if (dateObject.getDate()+i <= projectApp.selectedProject.daysInStartMonth) {
+            dateTh[i].innerHTML = `${dateObject.getDate() + i}/${dateObject.getMonth() + 1}`; 
+        } else {
+            dateTh[i].innerHTML = `${dateObject.getDate() - projectApp.selectedProject.daysInStartMonth + i}/${dateObject.getMonth() + 2}`;
+        }
+    }
+}
 
 function allowDrop(ev){
     //Prevents browser from preventing drop on an element
