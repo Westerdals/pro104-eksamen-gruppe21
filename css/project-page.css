@@ -379,7 +379,9 @@ th {
     display: flex;
     border: 1px solid black;
 }
-
+.task-container {
+    flex: 1;
+}
 .task-p-class {
     width: 30%;
     height: 100%;
