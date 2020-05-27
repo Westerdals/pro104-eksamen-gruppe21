@@ -215,15 +215,38 @@ function renderTodoList() {
     toDoList.innerHTML = "";
     //Giving each task a spesific draggable id for use in drag and drop
     for (var i=0; i<listOfTasks.length; i++) {
-        toDoList.innerHTML += `<div style="background-color:${listOfTasks[i].taskImportance};" id="draggable${i}" class="task-p-class" draggable="true" ondragstart="drag(event)"><p>${listOfTasks[i].taskName}</p><h2>&#10003</h2></div>`
+        toDoList.innerHTML += `<div style="background-color:${listOfTasks[i].taskImportance};" id="draggable${i}" class="task-p-class draggable${i}" draggable="true" ondragstart="drag(event)"onclick="taskCompleted(${i})"><p>${listOfTasks[i].taskName}</p><h2>&#10003</h2></div>`
     }
+}
+function taskCompleted(i) {
+    var currentProject = projectApp.selectedProject;
+    var projectList = projectApp.allProjects;
+
+    var completedTasks = document.getElementsByClassName(`draggable${i}`);
+    projectApp.selectedProject.finishedTasks = projectApp.selectedProject.finishedTasks || [];
+
+    if (projectApp.selectedProject.finishedTasks.includes(i)){
+
+    } else {
+        projectApp.selectedProject.finishedTasks.push(i);
+    }
+    
+
+    projectList[currentProject.indexLocation].completedTasks = projectApp.selectedProject.finishedTasks;
+    window.localStorage.setItem('projects', JSON.stringify(projectList));
+    
+    for (var j = 0; j < completedTasks.length; j++) {
+        completedTasks[j].getElementsByTagName('h2')[0].style.visibility = "visible";
+    }
+    saveTaskAssignment();
+    
 }
 
 function renderAssignments(){
     //Prepares the table for overwriting by clearing all non-essential elememnts
     const assignmentField = document.getElementById('calender-table');
     assignmentField.innerHTML = `<tr id="days-header"></tr>`;
-    
+
     const daysHeader = document.getElementById('days-header');
 
     var listOfUsers = projectApp.selectedProject.users || [];
@@ -290,6 +313,10 @@ function renderAssignments(){
             }            
         }
     }
+
+
+
+
     setDateDays();
 }
 function setDateDays(){
@@ -322,6 +349,9 @@ function drop(ev){
     nodeCopy.id = "newId";
     //Appending the nodeCopy to the element that is being dropped upon
     ev.target.appendChild(nodeCopy);
+
+    nodeCopy.getElementsByTagName('h2')[0].style.visibility = "hidden";
+    
     saveTaskAssignment();
 }
 
