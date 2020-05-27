@@ -193,50 +193,40 @@ function submitTodoModal(event) {
 }
 
 function renderTodoList() {
-    //const listOfTasks = JSON.parse(window.localStorage.getItem('listOfTasks')) || [];
     var listOfTasks = projectApp.selectedProject.tasks || [];
-    console.log(listOfTasks);
-    
     const toDoList = document.getElementById('to-do-list-tasks');
-    toDoList.innerHTML = "";
 
+    toDoList.innerHTML = "";
+    //Giving each task a spesific draggable id for use in drag and drop
     for (var i=0; i<listOfTasks.length; i++) {
         toDoList.innerHTML += `<p style="background-color:${listOfTasks[i].taskImportance};" id="draggable${i}" class="task-p-class" draggable="true" ondragstart="drag(event)">${listOfTasks[i].taskName}</p>`
     }
 }
 
 function renderAssignments(){
+    //Prepares the table for overwriting by clearing all non-essential elememnts
     const assignmentField = document.getElementById('calender-table');
+    assignmentField.innerHTML = `<tr id="days-header"></tr>`;
+
     const daysHeader = document.getElementById('days-header');
 
     var listOfUsers = projectApp.selectedProject.users || [];
 
-    
-
-    //Her må det komme en funksjon som henter antall dager prosjektet er, og lagre det antallet dager
+    //Assigns the return value (length of project in days) from getDateDifference to lengthInDays
     var lengthInDays = getDateDifference();
-    console.log(lengthInDays);
     
-    //Her må det komme en funksjon som henter antall medlemmer det er i prosjektet
-   var firstTBody = document.getElementById("calender-table").getElementsByTagName("tbody")[0];
-   firstTBody.classList.add("firstTBody");
+    //Gets the first row in the table and prepares it for use as a display for date
+    var firstTBody = document.getElementById("calender-table").getElementsByTagName("tbody")[0];
+    firstTBody.classList.add("firstTBody");
 
     daysHeader.innerHTML = `
-        <th id="dateDisplay" class="name-column">
-
-        </th>
+        <th id="dateDisplay" class="name-column"></th>
     `;
 
-    console.log(daysHeader);
-
-    var dateDisplay = document.getElementById('dateDisplay');
     const participants = projectApp.selectedProject.users || 0;
-    console.log(participants);
     
     if (participants == 0){
-        daysHeader.innerHTML = `<h2 style="margin:auto;font-size:4rem;">Legg til brukere for å begynne!</<h2>`;
-        console.log("HEi");
-        
+        daysHeader.innerHTML = `<h2 style="margin:auto;font-size:4rem;">Legg til brukere for å begynne</h2>`; 
     } else {
         for (var i = 0; i < lengthInDays; i++){
             daysHeader.innerHTML += `
@@ -244,8 +234,7 @@ function renderAssignments(){
             `;
         }
     }
-
-    console.log(listOfUsers);
+    //Creates a box for each user in the participant column
     for (var i = 0; i < listOfUsers.length; i++){
         assignmentField.innerHTML += `
             <tr id="participantColumn${i}" class="task-row">
@@ -254,48 +243,57 @@ function renderAssignments(){
         `;
        
         for (var j = 0; j < lengthInDays;j++){
+
             var participantColumn = document.getElementById(`participantColumn${i}`);
             participantColumn.classList.add("calender-name-container");
+
+            //Checks if there has been allocated tasks
             if (projectApp.selectedProject.taskAllocation) {
-                
+
+                //If there is missing a row in the "2d array" for one ore more users, it creates a new one for that user
+                //And appends it to the original "2d array"
                 if (projectApp.selectedProject.taskAllocation.length < projectApp.selectedProject.users.length){
                     var oldAssignments = projectApp.selectedProject.taskAllocation;
                     oldAssignments.push([])
+                    //Creates a location in the "2d array" for each day the project is lasting
                     for ( var k = 0; k < projectApp.selectedProject.duration;k++){
                         oldAssignments[oldAssignments.length-1].push([]);
                     }
                     projectApp.selectedProject.taskAllocation = oldAssignments;
                 }
+                //If there is something in the "2d array" at location i j it assigns its value to the appropriate th's innerHTML
+                //or else it will assign nothing to that th element
                 participantColumn.innerHTML += `
                 <th class="task-container container${i}${j}" ondrop="drop(event)" ondragover="allowDrop(event)">${projectApp.selectedProject.taskAllocation[i][j]}</th>
             `;
             } else {
+                //If there hasn't been any allocations, it skips the steps above and just creates empty th elements. Improving code efficienty and performance
                 participantColumn.innerHTML += `
                 <th class="task-container container${i}${j}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
             `;
-            }
-            
+            }            
         }
-
-        }
-
     }
+}
 
 
 function allowDrop(ev){
+    //Prevents browser from preventing drop on an element
     ev.preventDefault();
-
 }
 function drag(ev){
+    //Sets data from the element being draged as a text type
     ev.dataTransfer.setData('text', ev.target.id);
-    console.log(ev.dataTransfer.setData('text', ev.target.id));
 }
 function drop(ev){
     ev.preventDefault()
+    //Gets the data from the element being dropped
     var data = ev.dataTransfer.getData("text");
-    console.log(data);
+    //Creating a copy of the element that was dragged
     var nodeCopy = document.getElementById(data).cloneNode(true);
+    //Giving it an id used for assigning to a container 
     nodeCopy.id = "newId";
+    //Appending the nodeCopy to the element that is being dropped upon
     ev.target.appendChild(nodeCopy);
     saveTaskAssignment();
 }
@@ -303,37 +301,18 @@ function drop(ev){
 function saveTaskAssignment(){
     var currentProject = projectApp.selectedProject;
     var projectList = projectApp.allProjects;
-    //projectApp.selectedProject.taskAllocation = [];
     
-    var multiArray = [];
+    var newAllocationArray = [];
     
-
+    //Saves each allocation to the new array for saving to the global object projectApp and localStorage
     for (var i = 0; i < projectApp.selectedProject.users.length; i++){
-        multiArray.push([])
+        newAllocationArray.push([])
         var participantColumn = document.getElementById(`participantColumn${i}`)
         for (var j = 1; j < projectApp.selectedProject.duration + 1; j++){
             dayColumn = participantColumn.getElementsByTagName("th")[j];
-            multiArray[i].push([dayColumn.innerHTML]);          
+            newAllocationArray[i].push([dayColumn.innerHTML]);          
         }
-        
-        //console.log(containers[i]);
-        //projectList[projectApp.selectedProject.indexLocation].taskAllocation.push([containers[i].innerHTML]);
     }
-    window.localStorage.setItem('arrayTest', JSON.stringify(multiArray));
-    console.log(multiArray);
-
-    projectList[currentProject.indexLocation].taskAllocation = multiArray;
-    
+    projectList[currentProject.indexLocation].taskAllocation = newAllocationArray;
     window.localStorage.setItem('projects', JSON.stringify(projectList));
-
-    /*for (var i = 0; i < assignedTasks.length; i++){
-        console.log(assignedTasks[i].getElementsByTagName('p')[0].innerHTML);
-
-        localStoageRef.push([[assignedTasks[i].getElementsByTagName('p')[0].innerHTML]]);
-        console.log(localStoageRef);
-
-    }
-        console.log(localStoageRef);
-    
-        window.localStorage.setItem('allocation', JSON.stringify(localStoageRef)); */
 }
