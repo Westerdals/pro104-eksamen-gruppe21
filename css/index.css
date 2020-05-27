@@ -145,7 +145,7 @@ body{
 #modal-content{
     background-color: white;
     width: 20%;
-    height: 35%;
+    height: 40%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -162,6 +162,7 @@ body{
 }
 #modal-content button{
     margin-top: 4%;
+    margin-bottom: 4%;
     height: 13%;
     width: 40%;
     
@@ -177,6 +178,7 @@ body{
     width: 40%;
     padding: 1em;
     border: black solid 0.5px;
+  
 }
 
 .modal-input:hover{
@@ -205,21 +207,20 @@ body{
 #no-proj-txt-div{
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-wrap: wrap;
-    height: 50%;
-    width: 50%;
+    height: 45%;
+    width: 55%;
+    border-radius: 15px;
     margin-top: 16%;
+    background-color: rgba(255,255,255,0.7);
 }
 
 #no-project-txt{
-    position: absolute;
-    width: 30%;
-    font-size: 30px;
+    font-size: 60px;
     font-family: 'Montserrat', sans-serif;
     color: teal;
-    background-color: white;
-    padding: 20px;
+    
+ 
     text-align: center;
     
 }
@@ -239,6 +240,8 @@ body{
     font-size: 1.8rem;
     font-family: 'Montserrat', sans-serif;
     color: teal;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 8px;
 }
 
 @keyframes move-txt{
@@ -250,6 +253,53 @@ body{
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     *{
         box-sizing: border-box;
+    }
+
+    #main-container img{
+        display: none;
+    }
+
+    #notes-pic{
+        height: 100%;
+        width: 100%;
+    }
+    #no-project-modal{
+        position: absolute;
+        top:0;
+        bottom: 0;
+        display: flex;
+        height: 100%;
+        width: 100%;
+        background-color:black;
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        pointer-events: none;
+    
+    }
+    
+    #no-proj-txt-div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        height: 50%;
+        width: 50%;
+        margin-top: 30%;
+    }
+
+    #no-project-txt{
+       
+        width: 65%;
+        height: 40%;
+        font-size: 80px;
+        font-family: 'Montserrat', sans-serif;
+        color: teal;
+        background-color: white;
+        padding: 20px;
+        padding-top: 130px;
+        text-align: center;
     }
     /* Makes projects shorter for mobile format */
     .div-common{
@@ -306,6 +356,8 @@ body{
     #no-project-txt2{
         display: none;
     }
+
+    
 }
 
 
