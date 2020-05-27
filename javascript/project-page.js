@@ -183,7 +183,7 @@ function submitTodoModal(event) {
             taskImportance = '#E2F0CB';
             break;
         case 1:
-            toDoList.innerHTML += `<div class="task-p-class" style="background-color:#fffcbb;">${taskName}</div>`;
+            toDoList.innerHTML += `<div class="task-p-class" style="background-color:#fffcbb;">${taskName}<</div>`;
             taskImportance = '#fffcbb';
             break;
         case 2:
@@ -215,7 +215,7 @@ function renderTodoList() {
     toDoList.innerHTML = "";
     //Giving each task a spesific draggable id for use in drag and drop
     for (var i=0; i<listOfTasks.length; i++) {
-        toDoList.innerHTML += `<p style="background-color:${listOfTasks[i].taskImportance};" id="draggable${i}" class="task-p-class" draggable="true" ondragstart="drag(event)">${listOfTasks[i].taskName}</p>`
+        toDoList.innerHTML += `<div style="background-color:${listOfTasks[i].taskImportance};" id="draggable${i}" class="task-p-class" draggable="true" ondragstart="drag(event)"><p>${listOfTasks[i].taskName}</p><h2>&#10003</h2></div>`
     }
 }
 
