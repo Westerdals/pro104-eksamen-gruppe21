@@ -145,7 +145,7 @@ function prepareForRedirect(){
             //Saving the clicked project in sessionStorage for use in the next page
             window.sessionStorage.setItem('projectForForwadring', JSON.stringify(dataForForwarding));
             //Redirecting to the new page by assigning the window.location's href.
-            window.location.href = "html/project-page.html";
+            window.location.href = "../html/project-page.html";
         })
     }
 }
