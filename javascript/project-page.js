@@ -223,7 +223,7 @@ function renderAssignments(){
     //Prepares the table for overwriting by clearing all non-essential elememnts
     const assignmentField = document.getElementById('calender-table');
     assignmentField.innerHTML = `<tr id="days-header"></tr>`;
-
+    
     const daysHeader = document.getElementById('days-header');
 
     var listOfUsers = projectApp.selectedProject.users || [];
