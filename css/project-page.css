@@ -16,31 +16,11 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #7ec586;
-
-}
-.task-container {
-    flex: 1;
-    height: 100%;
-    flex-direction: row;
-}
-th {
-    border: 0.1px solid black;
-    border-spacing: 0px;
-    background-color: white;
-}
-#newId {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    align-self: center;
-    margin-bottom: 1px;
-    border: 1px solid black;
+    background-color: grey;
 }
 
 /*Container for header,top text */
 #container {
-    background-color:#dedede;
     top: 0;
     bottom: 0;
     height: 100%;
@@ -50,17 +30,15 @@ th {
     align-items: center;
     justify-content: center;
 }
-tbody > tr {
-    height: inherit;
-    flex: 1;
-    /*border-collapse: collapse;*/
-}
-/* Banner */
-#top-banner{
-    background-color: grey;
-    padding-top: 4%;
+
+#container img{
+    position: absolute;
+    height: 100%;
     width: 100%;
+    z-index: -1;
+    opacity: 0.4;
 }
+
 /* Top text */
 #toptext{
     display: flex;
@@ -68,30 +46,12 @@ tbody > tr {
     align-items: center;
     width: 100%;
     margin-bottom: 30px;
-    font-size: 50px;
+    font-size: 80px;
     font-family: 'Montserrat', sans-serif;
     color: black;
     margin-top: 1%;
 }
 
-/* Calender and team members */
-#calender{
-    display: flex;
-    height: 35%;
-    width: 90%;
-    background-color: gainsboro;
-    align-items: center;
-    justify-content: flex-start;
-    margin-bottom: 40px;
-
-
-}
-
-}
-#calender-line{
-    background-color: black;
-   
-}
 
 #list-flexbox{
     display: flex;
@@ -100,17 +60,16 @@ tbody > tr {
     width: 90%;
     height: 30%;
     margin-bottom: 30px;
-
 }
+
 p{
-    
     word-wrap: break-word;
 }
+
 .task-row {
     flex: 1;
-
-    
 }
+
 .common-listbox-prop{
     display: flex;
     height: 100%;
@@ -118,6 +77,7 @@ p{
     overflow: scroll;
     justify-content: space-around;
 }
+
 .common-list-prop > .task-p-class {
     flex-shrink: 0;
 }
@@ -132,11 +92,10 @@ p{
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    
 }
 
 #to-do-list{
-    background-color:#FFB7B2;
+    background-color:#D3D3D3;
 }
 
 #to-do-list-tasks > .task-p-class{
@@ -150,8 +109,8 @@ p{
 }
 
 #to-do-list-tasks > .task-p-class >p{
-color: black;
-margin-left: 10%;
+    color: black;
+    margin-left: 10%;
 }
 
 #to-do-list-tasks > .task-p-class >h2{
@@ -163,26 +122,25 @@ margin-left: 10%;
     width: 20%;
     height: 10%;
     margin-right: 6%;
-    background-color: #FFB7B2;
+    background-color:#D3D3D3;
     font-family: 'Montserrat', sans-serif;
     cursor: pointer;
     text-align: end;
 }
 
-
 /* Project members green */
 #project-members{
-    background-color:#E2F0CB;
+    background-color: #D3D3D3;
 }
 
 #project-members-memb{
-    background-color: #E2F0CB;
+    background-color: #D3D3D3;
+}
 
-}
 #project-members-memb > div{
-    padding: 10px;
-    
+    padding: 10px;    
 }
+
 th {
     flex-shrink: 10;
     min-width: 175px;
@@ -191,26 +149,21 @@ th {
 #project-members-memb > div > p {
     color: black;
 }
+
 #project-members button{
     width: 20%;
     height: 10%;
-    margin-right: 3%;
+    margin-right: 6%;
     text-align: end;
-    background-color: #E2F0CB;
+    background-color: #D3D3D3;
     font-family: 'Montserrat', sans-serif;
     cursor: pointer;
 }
+
 /* Buttons that opens new project/member modal */
 .add-participant-btn, .add-todo-btn {
     font-weight: 900;
-    font-size: 1.2rem;
-}
-
-/* Modal Section */
-
-
-form label, p {
-    color: white;
+    font-size: 1rem;
 }
 
 /* Modal that adds new tasks and new member*/
@@ -244,47 +197,24 @@ form label, p {
     cursor: pointer;
 }
 
+/* The form on both modals */
 .modal-content-design form{
     display: flex;
     height: 100%;
     width: 100%;
     flex-direction: column;
     align-items: center;
-   
 }
 
-.modal-content-design label{
+/* extra styling for to-do modal*/
+#modal-todo-content form{
+    margin-top: 10%;
+}
+
+#modal-todo-content label{
     color: black;
     font-size: 25px;
     margin: 0px;
-}
-
-#submit-btn{
-    width: 50%;
-    height: 15%;
-    background-color: rosybrown;
-    margin-top: 40px;
-    cursor: pointer;
-}
-
-#submit-member-btn{
-    width: 50%;
-    height: 15%;
-    background-color: rosybrown;
-    cursor: pointer;
-}
-
-#task-modal-input{
-    border: 1px solid black;
-    height: 30px;
-    cursor: text;
-    margin-bottom: 10px;
-}
-
-#modal-participant-content input{
-    border: 1px solid black;
-   height: 22px;
-    cursor: text;
 }
 
 #modal-participant-content label{
@@ -292,6 +222,37 @@ form label, p {
     font-size: 15px;
     margin: 0px; 
 }
+
+#submit-member-btn{
+    width: 50%;
+    height: 15%;
+    background-color: grey;
+    cursor: pointer;
+}
+
+#submit-task-btn{
+    width: 50%;
+    height: 15%;
+    background-color: grey;
+    cursor: pointer;
+    margin-top: 10%;
+}
+
+#task-modal-input{
+    border: 1px solid black;
+    height: 15%;
+    width: 60%;
+    cursor: text;
+    margin-bottom: 10px;
+}
+
+#modal-participant-content input{
+    border: 1px solid black;
+    height: 10%;
+    cursor: text;
+}
+
+
 /* Browser Styling */
 .common-list-prop::-webkit-scrollbar, .common-listbox-prop::-webkit-scrollbar {
     display: none;
@@ -302,19 +263,19 @@ form label, p {
     -ms-overflow-style: none;
   }
 
-
-
-
 /* Color indicators and importance level */
 .less-important-radio {
     background-color: #E2F0CB;
 }
+
 .important-radio {
     background-color: #fffcbb;
 }
+
 .very-important-radio {
     background-color:#FFB7B2;
 }
+
 .radio-div {
     width: 30px;
     height: 30px;
@@ -330,89 +291,105 @@ form label, p {
     width: 80%;
     justify-content: center;
     align-items: center;
-  
 }
 
 #importance-lvl{
-    height: 11%;
+    height: 12%;
     width: 90%;
     display: flex;
-    justify-content: flex-end;
-   
+    justify-content: center;
+    padding-left: 8%;
+}
+
+#importance-lvl p{ 
+   padding-right: 10%;
+   padding-left: 1%;
 }
 
 #color-box{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction: column;
-    height: 70%;
+
+    height: 90%;
 }
 
-#color-txt-box{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-left: 20px;
-    margin-right: 100px;
-    flex-direction: column;
-    height: 70%;
-}
+/* Colors at bottom showing importancy */
 
-#color-txt-box p{
-    font-family: 'Montserrat', sans-serif;
-}
+
+
 .importance-color{
     width: 20px;
     height: 20px;
     border-radius: 50%;
 }
 
-
-
-.level-of-important{
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 /* Very important */
 #very-important-color{
     background-color: #FFB7B2;
-}
-#very-important-txt{
-    font-family: monospace;
-    color:black;
-    
 }
 
 /* Important */
 #important-color{
     background-color: #fffcbb;
 }
-#important-txt{
-    font-family: monospace;
-    color:black;
-}
+
 
 /* Less important */
 #less-important-color{
     background-color: #E2F0CB;
 }
-#less-important-txt{
-    font-family: monospace;
-    color:black;
+
+/*done */
+#done-color{
+    background-color: grey;
 }
-/* Task Section */
+
+
+
+/* CALENDER START */
+
+#calender{
+    display: flex;
+    height: 35%;
+    width: 90%;
+    background-color:#EBECF0;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 40px;
+}
+
+tbody > tr {
+    height: inherit;
+    flex: 1;
+}
+
+th {
+    border: 0.1px solid black;
+    border-spacing: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+#newId {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border: 1px solid black;
+}
+
 .task-p-class {
     width: 30%;
     height: 100%;
     border: 1px solid grey;
     text-align: center;
+    justify-content: center;
+    align-items: center;
     border-radius: 25px;
     color: black;
-    font-weight: 900;
-    
+    font-weight: 900;  
 }
 
 th .task-p-class {
@@ -421,25 +398,23 @@ th .task-p-class {
 }
 
 #days-header th {
-    /*width: auto;*/
     height: 100%;
-    /*border: 1px solid black;*/
 }
+
 .task-th{
     flex: 1;
-    /*border-collapse: collapse;*/
 }
+
 #calender-table {
-    /*border-collapse: collapse;*/
     table-layout: fixed;
     width: 100%;
     height:100%;
     display: flex;
     flex-direction: column;
     border: 1px solid;
-    overflow-x: scroll;
-    
+    overflow-x: scroll; 
 }
+
 tbody:nth-child(n+2) > * {
     height: inherit;
 }
@@ -447,40 +422,29 @@ tbody:nth-child(n+2) > * {
 #calender-table > tbody:nth-child(n+2){
     flex: 1;    
 }
-#calender-table > #calender-table:nth-child(1) {
-    height: 160px;
-    background-color: red;
-}
+
 .calender-name-container{
     display: flex;
 }
-.calender-name-container th {
-    
-}
 
-.firstTBody{
-   /* display: flex; */
-    height: 20%;
-    /*border-collapse: collapse;*/
-}
 .name-column {
     width: 100px;
-    background-color:grey;
+    background-color:#D3D3D3;
     position: -webkit-sticky;
     position: sticky;
     left: 0;
     top: 0;
     bottom: 0;
-    
 }
+
 .calender-name-container > .name-column {
     flex: none;
 }
+
 #days-header{
     display: flex;
     height: 100%;
     width: 100%;
-    
 }
 
 tbody{
@@ -488,9 +452,9 @@ tbody{
     width: 100%;
     flex: 1;
 }   
+/* CALENDER END */
 
-
-
+/* Mobilversjon */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px){
      #to-do-list button{
         font-size: 20px;

@@ -12,8 +12,6 @@ body{
     height: 100%;
     width: 100%;
     background-color:grey;
-    
-   
 }
 
 /* Main container for main container*/
@@ -55,7 +53,6 @@ body{
     align-items: flex-start;
     justify-content: center;
     margin-bottom: 50px;
-    
 }
 
 .open-modal-btn-container{
@@ -63,6 +60,7 @@ body{
     justify-content: flex-start;
     align-items: center;
 }
+
 /* Button to open the "new project modal" */
 #open-modal-btn{
     text-align: center;
@@ -72,7 +70,6 @@ body{
     margin-left: 9%;
     margin-right: 2%;
     width: 16%;
-
 }
 
 #open-modal-btn:after{
@@ -87,6 +84,7 @@ body{
 	-webkit-transform: scale(0,1);
 	transform: scale(0,1);
 }
+
 #open-modal-btn:hover:after {
     opacity: 1;
 	-webkit-transform: scale(1);
@@ -105,9 +103,11 @@ body{
     align-items: center;
     justify-content: center;
 }
+
 .div-common:hover{
     border: 1px solid black;
 }
+
 /* Contains the common css for text on project box */
 .div-common p{
     font-size: 20px;
@@ -139,8 +139,8 @@ body{
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s opacity 0,5s;
-    
 }
+
 /* Main box of modal that makes new projects */
 #modal-content{
     background-color: white;
@@ -153,13 +153,16 @@ body{
     font-family: 'Montserrat', sans-serif;
     border-radius: 10px;
 }
+
 /* CSS for text, input boxes and button on modal */
 #modal-content p{
     margin-left: 80%;
 }
+
 #modal-content p:hover{
     cursor: pointer;
 }
+
 #modal-content button{
     margin-top: 4%;
     margin-bottom: 4%;
@@ -178,13 +181,11 @@ body{
     width: 40%;
     padding: 1em;
     border: black solid 0.5px;
-  
 }
 
 .modal-input:hover{
     background-color:#F2F2F2;
     cursor: text;
-    
 }
 
 /* Modal that pops up when amount of projects=0 */
@@ -201,7 +202,6 @@ body{
     flex-direction: column;
     align-items: center;
     pointer-events: none;
-
 }
 
 #no-proj-txt-div{
@@ -219,10 +219,7 @@ body{
     font-size: 60px;
     font-family: 'Montserrat', sans-serif;
     color: teal;
-    
- 
     text-align: center;
-    
 }
 
 #notes-pic{
@@ -263,6 +260,7 @@ body{
         height: 100%;
         width: 100%;
     }
+
     #no-project-modal{
         position: absolute;
         top:0;
@@ -276,7 +274,6 @@ body{
         flex-direction: column;
         align-items: center;
         pointer-events: none;
-    
     }
     
     #no-proj-txt-div{
@@ -301,10 +298,12 @@ body{
         padding-top: 130px;
         text-align: center;
     }
+
     /* Makes projects shorter for mobile format */
     .div-common{
         height: 20%;
     }
+
     #main-container {
         min-width: 100%;
         width: 100%;
@@ -316,48 +315,56 @@ body{
         padding-right: 30px;
         font-size: 80px;
     }
+
     .open-modal-btn-container{
         display: flex;
         justify-content: center;
     }
+
     #modal-content{
         width: 80%;
         height: 80%;
     }
+
     label{
         font-size: 40px;
     }
+
     #create-project-btn{
         font-size: 30px;
     }
+
     h2{
         font-size: 45px;
     }
+
     #modal-name-input{
         height: 4%;
         width: 50%;
         font-size: 30px;
     }
+
     #modal-date-input{
         height: 4%;
         width: 50%;
         font-size: 30px;
     }
+
     #modal-date-end-input{
         height: 4%;
         width: 50%;
         font-size: 30px;
     }
+
     /* Picture on start page */
     #notes-pic{
         width: 170%;
     }
+
     /* Hides text */
     #no-project-txt2{
         display: none;
-    }
-
-    
+    } 
 }
 
 
