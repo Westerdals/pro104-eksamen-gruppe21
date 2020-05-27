@@ -64,6 +64,12 @@ function getDateDifference(){
     //Does necessary calculations to determine how to calculate days between start and end date
     if(startMonth === endMonth){
         projectApp.selectedProject.duration = endDate.getDate() - startDate.getDate();  
+        if(startMonth == 0 || startMonth == 2 || startMonth == 4 || startMonth == 6 || startMonth == 7 || startMonth == 9 || startMonth == 11){
+            daysInStartMonth = 31;
+            projectApp.selectedProject.daysInStartMonth = daysInStartMonth;
+
+
+        }
     }
 
     if(endMonth > startMonth){
