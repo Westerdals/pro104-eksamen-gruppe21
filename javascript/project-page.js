@@ -1,3 +1,5 @@
+//Making several functions run at window.onload by assigning window.onload to a function containing
+//functions that gets called on when the window loads
 window.onload = init;
 
 var projectApp = {};
@@ -7,8 +9,13 @@ function init(){
     renderAssignments();
     renderTodoList();
     renderParticipants();
-}
 
+    // If project has 9 or less days it hides the scroller
+    if(projectApp.selectedProject.duration <= 11) {
+        document.getElementById('calender-table').style = "-ms-overflow-style:none";
+    }
+}
+//Functions for opening and closing pop-ups for input
 function showParticipantModal(){
     document.getElementById('add-participant-modal').style.display = 'flex';
 }
@@ -26,6 +33,7 @@ function renderSelectedProject(){
     var selectedProject = JSON.parse(window.sessionStorage.getItem('projectForForwadring'));
     var allProjects = JSON.parse(window.localStorage.getItem('projects'));
 
+    //Locates the current projects and writes it to projectApp's selectedProject attribute
     for (var i = 0; i < allProjects.length; i++){
         if(allProjects[i].name == selectedProject.projectName) {
             selectedProject = allProjects[i];
@@ -35,60 +43,51 @@ function renderSelectedProject(){
         }
     }
 
-
     document.getElementById('toptext').innerHTML = selectedProject.name;
 
-    console.log(selectedProject);
-
-    const duration = getDateDifference();
-    console.log(duration);
-    
+    getDateDifference();
 }
 
 function getDateDifference(){
     const currentYear = new Date().getFullYear();
-    console.log(currentYear);
-    
+   
     var startDate = new Date(projectApp.selectedProject.date);
     var endDate = new Date(projectApp.selectedProject.endDate);
-    console.log(endDate);
-    
 
     var startMonth = startDate.getMonth();
     var endMonth = endDate.getMonth();
 
     var startDayNumber = startDate.getDate()
     var endDayNumber = endDate.getDate();
-    console.log(startDayNumber);
 
-
+    //Does necessary calculations to determine how to calculate days between start and end date
     if(startMonth === endMonth){
         projectApp.selectedProject.duration = endDate.getDate() - startDate.getDate();  
     }
+
     if(endMonth > startMonth){
         if(startMonth == 0 || startMonth == 2 || startMonth == 4 || startMonth == 6 || startMonth == 7 || startMonth == 9 || startMonth == 11){
-            daysInStartMonth = 31;
+            var daysInStartMonth = 31;
 
-            console.log(startDayNumber, endDayNumber);
             var daysLeftInStartMonth = daysInStartMonth - startDayNumber;
             var totalDays = daysLeftInStartMonth + endDayNumber;
 
             projectApp.selectedProject.duration = totalDays;
-
         } else if (startMonth != 1) {
-            daysInStartMonth = 30;
+            var daysInStartMonth = 30;
 
-            console.log(startDayNumber, endDayNumber);
             var daysLeftInStartMonth = daysInStartMonth - startDayNumber;
             var totalDays = daysLeftInStartMonth + endDayNumber;
 
             projectApp.selectedProject.duration = totalDays;
-            //Checks if the current year is a leap year, and if the projects start month is February. If both is true the daysInstartMonth will have 29 days
+
+        //Checks if the current year is a leap year, and if the projects start month is February. If both is true it will give February 29 days
         } else if (((currentYear % 4 == 0) && (currentYear % 100 != 0)) || (currentYear % 400 == 0) && (startMonth == 1)){
             daysInStartMonth = 29;
-            console.log(startDayNumber, endDayNumber);
+            
             var daysLeftInStartMonth = daysInStartMonth - startDayNumber;
             var totalDays = daysLeftInStartMonth + endDayNumber;
+
             projectApp.selectedProject.duration = totalDays;
         }
     }
@@ -97,41 +96,32 @@ function getDateDifference(){
 
 
 function submitModal(e){
+    //Using event.preventDefualt() to stop the submit-btn from sending a POST message and refreshing the page
     e.preventDefault();
+
     var currentProject = projectApp.selectedProject;
-    var projectList = projectApp.allProjects;1  
+    var projectList = projectApp.allProjects;  
+    var listOfUsers = projectApp.selectedProject.users || [];
 
     const firstName = document.querySelector("[name='fname']").value;
     const lastName = document.querySelector("[name='lname']").value;
     const email = document.querySelector("[name='email']").value;
-
-    var listOfUsers = projectApp.selectedProject.users || [];
-    console.log(listOfUsers);
-    var  participant = {firstName, lastName, email};
     
+    //Creates a participant object with name and email as attributes and adds it to the list of users
+    var  participant = {firstName, lastName, email};
     listOfUsers.push(participant);
-    console.log(listOfUsers);
-
+    
+    //Updating both the selectedProject for further use within the project, in addition to saving it
+    //to the projectList at the correct index location for saving in localStorage
     projectApp.selectedProject.users = listOfUsers;
     projectList[currentProject.indexLocation].users = listOfUsers;
 
     window.localStorage.setItem('projects', JSON.stringify(projectList));
 
-   /* for (var i = 0;i<projectList.length;i++){
-        if (projectList[i].name == currentProject.projectName){
-            projectList[i].users = listOfUsers;
-            window.localStorage.setItem('projects', JSON.stringify(projectList));
-            currentProject = JSON.parse(window.localStorage.getItem('projects'));
-        }
-    }
-
-*/
-    
-    
-    console.log(currentProject);
     e.target.reset();
-    renderParticipants();
     closeParticipantModal();
+    renderParticipants();
+    renderAssignments();
 }
 
 function renderParticipants(){
@@ -139,7 +129,7 @@ function renderParticipants(){
 
     const memberList = document.getElementById("project-members-memb");
     memberList.innerHTML = "";
-    //Printing all names to the screen for each participant in localStorage using the forEach methord with an arrow function
+    
     for (var i = 0; i < participants.length;i++){
         memberList.innerHTML += `
             <div><p>${participants[i].firstName} ${participants[i].lastName}</p></div>
@@ -153,14 +143,16 @@ function submitTodoModal(event) {
     var currentProject = projectApp.selectedProject;
     var projectList = projectApp.allProjects;
 
-    // var listOfTasks = JSON.parse(window.localStorage.getItem('listOfTasks')) || [];
     var listOfTasks = projectApp.selectedProject.tasks || [];
 
+    //Gets value from input fields using querySelector and passing the argument for accesing input names
+    //aswell as the name value
     const toDoList = document.getElementById('to-do-list-tasks');
     const taskName = document.querySelector("[name='task']").value;
     const radiobuttons = document.querySelectorAll("[name='importance']");
     var taskImportance;
 
+    //Checking each radiobutton in radioButtons to determine if that spesific radioButton was checked or not
     for (const radiobutton of radiobuttons){
         if(radiobutton.checked){
             taskImportance = parseInt(radiobutton.value);
@@ -168,6 +160,7 @@ function submitTodoModal(event) {
         }
     }
 
+    //Assigning a color for indicating level of importancce depending on the radiobutton's value
     switch(taskImportance){
         case 0:
             toDoList.innerHTML += `<div class="task-p-class" style="background-color:#E2F0CB;">${taskName}</div>`;
@@ -183,24 +176,20 @@ function submitTodoModal(event) {
             break;
         default:
             toDoList.innerHTML += `<div class="task-p-class" style="background-color:#ffff00;">${taskName}</div>`;
-            taskImportance = '#ffff00';
-            break;
+            taskImportance = '#fffcbb';
+            break; // <- Not necessary - But good practise!
     }
     
-
     const task = {taskName, taskImportance};
-    console.log(task);
     listOfTasks.push(task);
+
     projectApp.selectedProject.tasks = listOfTasks;
     projectList[currentProject.indexLocation].tasks = listOfTasks;
-
     window.localStorage.setItem('projects', JSON.stringify(projectList));
-    console.log(projectApp);
     
-    //window.localStorage.setItem('listOfTasks', JSON.stringify(listOfTasks));
     closeTodoModal();
+    renderTodoList();
     event.target.reset();
-
 }
 
 function renderTodoList() {
@@ -209,16 +198,20 @@ function renderTodoList() {
     console.log(listOfTasks);
     
     const toDoList = document.getElementById('to-do-list-tasks');
+    toDoList.innerHTML = "";
 
     for (var i=0; i<listOfTasks.length; i++) {
         toDoList.innerHTML += `<p style="background-color:${listOfTasks[i].taskImportance};" id="draggable${i}" class="task-p-class" draggable="true" ondragstart="drag(event)">${listOfTasks[i].taskName}</p>`
     }
 }
+
 function renderAssignments(){
     const assignmentField = document.getElementById('calender-table');
     const daysHeader = document.getElementById('days-header');
 
     var listOfUsers = projectApp.selectedProject.users || [];
+
+    
 
     //Her må det komme en funksjon som henter antall dager prosjektet er, og lagre det antallet dager
     var lengthInDays = getDateDifference();
@@ -284,14 +277,6 @@ function renderAssignments(){
             
         }
 
-
-       // assignmentField.innerHTML += `
-        //<tr>
-            //<th class="test container container${i}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
-            //<th class="test container container${i}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
-            //<th class="test container container${i}" ondrop="drop(event)" ondragover="allowDrop(event)"></th>
-        //</tr>
-   // `
         }
 
     }
@@ -303,6 +288,7 @@ function allowDrop(ev){
 }
 function drag(ev){
     ev.dataTransfer.setData('text', ev.target.id);
+    console.log(ev.dataTransfer.setData('text', ev.target.id));
 }
 function drop(ev){
     ev.preventDefault()

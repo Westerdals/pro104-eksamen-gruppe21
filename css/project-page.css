@@ -3,7 +3,10 @@
     padding: 0px;
     border: 0px;
     border: none;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
+
 a {
     text-decoration: none;
     color: black;
@@ -21,9 +24,7 @@ body{
     height: 100%;
     flex-direction: row;
 }
-.task-row {
-    
-}
+
 
 th {
     border: 0.1px solid black;
@@ -171,8 +172,9 @@ p{
 }
 th {
     flex-shrink: 10;
-    min-width: 100px;
+    min-width: 175px;
 }
+
 #project-members-memb > div > p {
     color: black;
 }
@@ -206,6 +208,11 @@ form label, p {
 }
 
 /* Modal that adds new member*/
+.add-participant-btn, .add-todo-btn {
+    font-weight: 900;
+    font-size: 1.2rem;
+    
+}
 #add-participant-modal{
     display: none;
     position: absolute;
@@ -283,6 +290,15 @@ form label, p {
     font-size: 15px;
     margin: 0px; 
 }
+/* Browser Styling */
+.common-list-prop::-webkit-scrollbar, .common-listbox-prop::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE and Edge */
+  .common-list-prop, .common-listbox-prop {
+    -ms-overflow-style: none;
+  }
 
 
 
@@ -387,14 +403,16 @@ form label, p {
 }
 /* Task Section */
 .task-p-class {
-  
     width: 30%;
     height: 100%;
     border: 1px solid grey;
-    
     text-align: center;
     border-radius: 25px;
+    color: black;
+    font-weight: 900;
+    
 }
+
 th .task-p-class {
     border-radius: 0px;
     margin: 0;
@@ -406,10 +424,7 @@ th .task-p-class {
     /*border: 1px solid black;*/
 }
 
-*{
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-}
+
 
 .test{
     width: inherit;
@@ -449,13 +464,13 @@ th .task-p-class {
 
 .firstTBody{
     display: flex;
-    background-color: red;
+    
     height: 20%;
     /*border-collapse: collapse;*/
 }
 .name-column {
     width: 100px;
-    background-color: red;
+    background-color:grey;
     position: -webkit-sticky;
     position: sticky;
     left: 0;
